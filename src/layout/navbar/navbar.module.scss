@@ -1,0 +1,22 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 5px solid #1e72bd;
+  background: #f3f3f3;
+}
+
+.menu {
+  display: flex;
+}
+
+.menuItem,
+.cart {
+  padding: 15px 20px;
+  text-decoration: none;
+
+  &:hover {
+    color: #ffffff;
+    background: #1e72bd;
+  }
+}
