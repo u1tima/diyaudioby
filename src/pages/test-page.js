@@ -5,11 +5,37 @@ import Content from '../layout/content/content';
 import css from './test-page.module.scss';
 import logoSrc from "../images/0805-(2012-Metric)_tmb.webp";
 import { Button, Table } from 'react-bootstrap';
+import { ButtonGroup, Navbar, Form, InputGroup, FormControl, } from 'react-bootstrap';
 
 export default () => (
   <Layout>
     <Sidebar side='left'></Sidebar>
     <Content>
+      <Navbar className="bg-light justify-content-between">
+        <Form inline>
+          <InputGroup>
+            <InputGroup.Prepend>
+              <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              placeholder="Username"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
+          </InputGroup>
+        </Form>
+        <Form inline>
+          <FormControl type="text" placeholder="Search" className=" mr-sm-2" />
+          <Button type="submit">Submit</Button>
+        </Form>
+      </Navbar>
+      <ButtonGroup aria-label="Basic example">
+        <Button variant="secondary" size="sm">Left</Button>
+        <Button variant="secondary" size="sm">Middle</Button>
+        <Button variant="secondary" size="sm">Right</Button>
+      </ButtonGroup>
+      <Button className={css.btn} variant="primary">Primary</Button>
+
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -22,48 +48,48 @@ export default () => (
         <tbody>
           <tr>
             <td colspan='4'>
-            <div className={css.filter}>
-      </div>
-      <div className={css.sort}>
-        <span className={css.sortLabel}>Сортировка: </span>
-        <span className={css.sortBy}>наименование </span>
-        <span className={css.sortBy}>сопротивление </span>
-        <span className={css.sortBy}>точность</span>
+              <div className={css.filter}>
+              </div>
+              <div className={css.sort}>
+                <span className={css.sortLabel}>Сортировка: </span>
+                <span className={css.sortBy}>наименование </span>
+                <span className={css.sortBy}>сопротивление </span>
+                <span className={css.sortBy}>точность</span>
 
-      </div>
-      {/* <p>Сортировка</p>
+              </div>
+              {/* <p>Сортировка</p>
       <div>
         <button>Сопротивление</button>
         <button>Точность</button>
       </div> */}
-      <div className={css.row}>
-        <img className={css.image} src={logoSrc} alt="" />
-        <div className={css.mainData}>
-          <div className={css.name}>RES SMD 0805 10k 1/8W 1%</div>
-          <span className={css.manufacture}>Yageo</span>
-          <span className={css.partNumber}>RC0805</span>
-        </div>
-        <div className={[css.techData, css.cell].join(' ')}>
-          <span>Технические характеристики</span>
-        </div>
-        <div className={[css.sellQty, css.cell].join(' ')}>
-          <div className={css.qty}>10+</div>
-          <div className={css.qty}>100+</div>
-          <div className={css.qty}>1000+</div>
-        </div>
-        <div className={[css.sellPrice, css.cell].join(' ')}>
-          <div className={css.unitPrice}>1,00 р</div>
-          <div className={css.unitPrice}>0,75 р</div>
-          <div className={css.unitPrice}>0,50 р</div>
-        </div>
-        <div className={[css.control, css.cell].join(' ')}>
-          <button className={css.btnAdd}>-</button>
-          <input type="text" />
-          <button>+</button>
-        </div>
-        <div className={[css.total, css.cell].join(' ')}>2100,00 р</div>
-        <button className={css.btnAddToCart}>В корзину</button>
-      </div>
+              <div className={css.row}>
+                <img className={css.image} src={logoSrc} alt="" />
+                <div className={css.mainData}>
+                  <div className={css.name}>RES SMD 0805 10k 1/8W 1%</div>
+                  <span className={css.manufacture}>Yageo</span>
+                  <span className={css.partNumber}>RC0805</span>
+                </div>
+                <div className={[css.techData, css.cell].join(' ')}>
+                  <span>Технические характеристики</span>
+                </div>
+                <div className={[css.sellQty, css.cell].join(' ')}>
+                  <div className={css.qty}>10+</div>
+                  <div className={css.qty}>100+</div>
+                  <div className={css.qty}>1000+</div>
+                </div>
+                <div className={[css.sellPrice, css.cell].join(' ')}>
+                  <div className={css.unitPrice}>1,00 р</div>
+                  <div className={css.unitPrice}>0,75 р</div>
+                  <div className={css.unitPrice}>0,50 р</div>
+                </div>
+                <div className={[css.control, css.cell].join(' ')}>
+                  <button className={css.btnAdd}>-</button>
+                  <input type="text" />
+                  <button>+</button>
+                </div>
+                <div className={[css.total, css.cell].join(' ')}>2100,00 р</div>
+                <button className={css.btnAddToCart}>В корзину</button>
+              </div>
             </td>
           </tr>
           <tr>

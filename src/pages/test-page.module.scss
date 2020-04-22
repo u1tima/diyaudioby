@@ -1,3 +1,12 @@
+/* Remove outline on the forms and links */
+.btn:active,
+.btn:hover,
+.btn:focus {
+  box-shadow: none;
+  outline: 0;
+  outline-offset: 0;
+}
+
 .sort {
   .sortLabel {
     font-weight: bold;

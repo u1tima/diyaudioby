@@ -1,0 +1,5 @@
+.card,
+.btn,
+.form-control {
+  box-shadow: none !important;
+}
