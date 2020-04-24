@@ -1,0 +1,60 @@
+.comp {
+  font-size: 14px;
+}
+
+
+.sortLabel {
+  font-weight: bold;
+}
+
+.sortBy:hover {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+  font-size: 14px;
+}
+
+.cell {
+  margin: 0 10px;
+}
+
+.image {
+  height: 75px;
+  width: 75px;
+  border: 1px solid black;
+}
+
+/* .mainData {
+}
+
+.name {
+} */
+
+.control {
+  line-height: 1.5;
+}
+
+.techData {
+  font-size: 12px;
+  display: grid;
+  grid-template-columns: 100px 20px;
+}
+
+.control {
+  display: flex;
+}
+
+input {
+  width: 40px;
+  text-align: center;
+}
+
+.btnAddToCart {
+  margin-left: 10px;
+}

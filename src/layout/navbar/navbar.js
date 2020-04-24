@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './navbar.module.scss';
+import css from './navbar.module.css';
 import { Link } from 'gatsby';
 
 const Navbar = () => {
@@ -7,6 +7,7 @@ const Navbar = () => {
   const menu = [
     { name: 'Радиодетали', pageLink: '/store/components' },
     { name: 'Киты', pageLink: '/store/kits' },
+    { name: 'Test', pageLink: '/test-page' },
   ]
 
   const menuList = menu.map((item, index) => {
