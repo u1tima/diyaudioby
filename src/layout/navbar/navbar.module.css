@@ -15,8 +15,10 @@
   padding: 15px 20px;
   text-decoration: none;
 
-  &:hover {
-    color: #ffffff;
-    background: #1e72bd;
-  }
+}
+
+.menuItem:hover,
+.cart:hover {
+  color: #ffffff;
+  background: #1e72bd;
 }
