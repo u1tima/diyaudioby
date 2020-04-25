@@ -16,14 +16,14 @@ const component = {
     { name: 'Точность', value: 5, units: '%', factor: 0 },
   ],
   storaqe: [
-    { id: 1, name: 'C-23', qty: 230 },
-    { id: 23, name: 'B-29', qty: 12 },
+    { id: 1, name: 'C-23', qnt: 230 },
+    { id: 23, name: 'B-29', qnt: 12 },
   ],
   totalQty: 242,
   sellPrice: [
-    {qty: 10, unitPrice: 10},
-    {qty: 25, unitPrice: 8},
-    {qty: 50, unitPrice: 5},
+    {qnt: 10, unitPrice: 10},
+    {qnt: 25, unitPrice: 8},
+    {qnt: 50, unitPrice: 5},
   ],
   buyPrice: 40,
   priceStory: [
