@@ -1,0 +1,48 @@
+.table {
+  display: grid;
+  border-collapse: collapse;
+  /* border: 1px solid red; */
+}
+
+/* .row {
+
+}
+
+.cell {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.photo {
+  width: 75px;
+  height: 75px;
+  background-color: #ccc;
+}
+
+.info {
+
+}
+
+.details {
+
+}
+
+.qnt {
+
+}
+
+.qntItem {
+  
+}
+
+.price {
+
+}
+
+.priceItem {
+
+}
+
+.control {
+
+} */
