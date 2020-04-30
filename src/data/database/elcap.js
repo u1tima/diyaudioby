@@ -36,7 +36,7 @@ const data = [
       { date: '12-03-2007', qnt: 100, unitPrice: 1 },
       { date: '12-03-2007', qnt: 100, unitPrice: 10 },
     ],
-    minOrder: 10,
+    minOrder: 10, //минимальное количество
   },
   {
     id: 1,

@@ -10,15 +10,12 @@
   display: flex;
 }
 
-.menuItem,
-.cart {
+.menuItem {
   padding: 15px 20px;
   text-decoration: none;
-
 }
 
-.menuItem:hover,
-.cart:hover {
+.menuItem:hover {
   color: #ffffff;
   background: #1e72bd;
 }

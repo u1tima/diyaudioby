@@ -25,11 +25,11 @@ const Navbar = () => {
       <div className={css.menu}>
         {menuList}
       </div>
-      <div className={css.cart}>
-        <Link className={css.cart} to='/store/cart'>
-          Корзина
-        </Link>
-      </div>
+
+      <Link className={css.menuItem} to='/store/cart'>
+        Корзина
+      </Link>
+
     </nav>
   );
 }

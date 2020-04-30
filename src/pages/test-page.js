@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../layout/template/layout';
 import Sidebar from '../layout/sidebar/sidebar';
 import Content from '../layout/content/content';
+import CompList from '../components/CompList/CompList';
 import css from './test-page.module.css';
 import logoSrc from "../images/0805-(2012-Metric)_tmb.webp";
 
@@ -10,7 +11,7 @@ export default () => (
     <Sidebar side='left'></Sidebar>
     <Content>
 
-   
+    <CompList />
 
       <table className={css.comp}>
         <thead>

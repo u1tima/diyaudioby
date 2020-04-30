@@ -1,16 +1,10 @@
-.table {
-  /* display: grid; */
-  border-collapse: collapse;
-  /* border: 1px solid red; */
-}
-
-/* .row {
-
+.row {
+  /* border: 1px solid black; */
 }
 
 .cell {
   padding: 10px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .photo {
@@ -20,29 +14,28 @@
 }
 
 .info {
-
 }
 
 .details {
-
 }
 
 .qnt {
-
 }
 
-.qntItem {
-  
+.qntItem:hover {
+  color: #1e72bd;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .price {
-
 }
 
 .priceItem {
-
 }
 
 .control {
+}
 
-} */
+.total {
+}
