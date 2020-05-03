@@ -1,6 +1,9 @@
 .compList {
-  border-collapse: collapse;
   line-height: 1.2;
+}
+
+.table {
+  margin: 0 -10px;
 }
 
 /* .row {

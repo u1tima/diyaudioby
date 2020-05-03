@@ -28,6 +28,10 @@ class CompList extends Component {
 
       <div className={css.compList}>
 
+        <div className={css.search}>
+          <input type="text" name="" id=""/>
+        </div>
+
         {/* {this.state.sortProps.map((item, index) => (
           <button key={index}>{item}</button>
         ))} */}

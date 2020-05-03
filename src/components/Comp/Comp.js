@@ -132,7 +132,7 @@ class Comp extends Component {
               icon={faCartPlus}
               size="lg"
             />
-            В корзину
+             В корзину
           </button>
         </td>
 
