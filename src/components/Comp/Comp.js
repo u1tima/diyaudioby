@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import css from './Comp.module.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 class Comp extends Component {
 
@@ -106,7 +107,11 @@ class Comp extends Component {
 
 
         <td className={`${css.cell} ${css.control}`}>
-          <button onClick={this.btnMinusClick}>-</button>
+          <button
+            onClick={this.btnMinusClick}>
+
+            -
+          </button>
           <input
             type="text"
             value={this.state.qnt}
@@ -121,7 +126,14 @@ class Comp extends Component {
         </td>
 
         <td className={`${css.cell} ${css.cart}`}>
-          <button>В корзину</button>
+          <button className={css.testBtn}>
+            <FontAwesomeIcon
+              onClick={() => console.log('click')}
+              icon={faCartPlus}
+              size="lg"
+            />
+            В корзину
+          </button>
         </td>
 
       </tr>
