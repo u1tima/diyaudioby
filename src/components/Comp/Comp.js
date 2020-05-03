@@ -76,13 +76,13 @@ class Comp extends Component {
 
         <td className={`${css.cell} ${css.info}`}>
           <div className={css.name}>{this.props.comp.name}</div>
-          <span className={css.manufacture}>{this.props.comp.manufacture.name}</span>
-          <span className={css.partNumber}>{this.props.comp.partNumber}</span>
+          <div className={css.manufacture}>{this.props.comp.manufacture.name}</div>
+          <div className={css.partNumber}>{this.props.comp.partNumber}</div>
         </td>
 
-        <td className={css.cell}>
+        {/* <td className={css.cell}>
           <div className={css.details}>Детали</div>
-        </td>
+        </td> */}
 
 
         <td className={`${css.cell} ${css.qnt}`}>

@@ -1,7 +1,6 @@
-.table {
-  /* display: grid; */
+.compList {
   border-collapse: collapse;
-  /* border: 1px solid red; */
+  line-height: 1.2;
 }
 
 /* .row {

@@ -6,34 +6,57 @@ import Comp from '../Comp/Comp';
 
 class CompList extends Component {
 
-  state = {
-    components: elcap,
-  };
+  constructor() {
+    super();
+    this.state = {
+      components: elcap,
+      sortProps: [],
+    };
+    this.getSortProps();
+  }
+
+
+  getSortProps() {
+    const arr = this.state.components.map(comp => comp.techData.map(tech => tech.name));
+    
+    // this.setState({ sortProps })
+  }
 
   render() {
 
     return (
-      <table className={css.table}>
 
-        <thead>
-          <th></th>
-          <th>Наименование</th>
-          <th>Характеристики</th>
-          <th colSpan='2'>Цена</th>
-          {/* <th>Цена</th> */}
-          <th>Заказ</th>
-          <th>Сумма</th>
-          <th>Корзина</th>
-        </thead>
+      <div className={css.compList}>
 
-        <tbody>
+        {/* {this.state.sortProps.map((item, index) => (
+          <button key={index}>{item}</button>
+        ))} */}
 
-          {this.state.components.map((item, index) => (
-            <Comp key={index} comp={item} />
-          ))}
+        <table className={css.table}>
 
-        </tbody>
-      </table >
+          <thead>
+
+            <th></th>
+            <th>Наименование</th>
+            {/* <th>Характеристики</th> */}
+            <th colSpan='2'>Цена</th>
+            {/* <th>Цена</th> */}
+            <th>Заказ</th>
+            <th>Сумма</th>
+            <th>Корзина</th>
+
+          </thead>
+
+          <tbody>
+
+            {this.state.components.map((item, index) => (
+              <Comp key={index} comp={item} />
+            ))}
+
+          </tbody>
+        </table >
+
+      </div>
     );
   }
 }

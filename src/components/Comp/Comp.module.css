@@ -1,9 +1,10 @@
 .row {
   /* border: 1px solid black; */
+
 }
 
 .cell {
-  padding: 10px;
+  padding: 0 10px;
   /* border: 1px solid black; */
 }
 
@@ -35,6 +36,7 @@
 }
 
 .control {
+  /* display: flex; */
 }
 
 .total {
