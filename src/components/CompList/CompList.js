@@ -12,15 +12,15 @@ class CompList extends Component {
       components: elcap,
       sortProps: [],
     };
-    this.getSortProps();
+    // this.getSortProps();
   }
 
 
-  getSortProps() {
-    const arr = this.state.components.map(comp => comp.techData.map(tech => tech.name));
+  // getSortProps() {
+  //   const arr = this.state.components.map(comp => comp.techData.map(tech => tech.name));
 
-    // this.setState({ sortProps })
-  }
+  //   // this.setState({ sortProps })
+  // }
 
   render() {
 
@@ -28,41 +28,26 @@ class CompList extends Component {
 
       <div className={css.compList}>
 
-        <div className={css.search}>
-          <input type="text" name="" id="" />
-        </div>
-
         {/* {this.state.sortProps.map((item, index) => (
           <button key={index}>{item}</button>
         ))} */}
 
-        <table className={css.table}>
+        <div className={css.table}>
 
-          <thead>
-
-            <tr>              
-              <th></th>
-              <th>Наименование</th>
-              {/* <th>Характеристики</th> */}
-              <th colSpan='2'>Цена</th>
-              {/* <th>Цена</th> */}
-              <th>Заказ</th>
-              <th>Сумма</th>
-              <th>Корзина</th>
-
-            </tr>
-
-          </thead>
-
-          <tbody>
+              <div className={css.th}>Фото</div>
+              <div className={css.th}>Наименование</div>
+              <div className={css.th}>Инфо</div>
+              <div className={css.th}>Кол-во</div>
+              <div className={css.th}>Цена</div>
+              <div className={css.th}>Заказ</div>
+              <div className={css.th}>Сумма</div>
+              <div className={css.th}>Корзина</div>
 
             {this.state.components.map((item, index) => (
               <Comp key={index} comp={item} />
             ))}
 
-          </tbody>
-        </table >
-
+        </div >
       </div>
     );
   }

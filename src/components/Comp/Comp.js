@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import css from './Comp.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus, faPlus, faMinus, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 class Comp extends Component {
 
@@ -69,24 +69,25 @@ class Comp extends Component {
 
     return (
 
-      <tr className={css.row}>
+      <>
 
-        <td className={css.cell}>
-          <img className={css.photo} src="" alt="" />
-        </td>
+        <img className={css.photo} src="" alt="" />
 
-        <td className={`${css.cell} ${css.info}`}>
+        <div className={css.info}>
           <div className={css.name}>{this.props.comp.name}</div>
           <div className={css.manufacture}>{this.props.comp.manufacture.name}</div>
           <div className={css.partNumber}>{this.props.comp.partNumber}</div>
-        </td>
+        </div>
 
-        {/* <td className={css.cell}>
-          <div className={css.details}>Детали</div>
-        </td> */}
+        <div className={css.details}>
+          <FontAwesomeIcon
+            icon={faChevronDown}
+          // size="lg"
+          />
+        </div>
 
 
-        <td className={`${css.cell} ${css.qnt}`}>
+        <div className={css.qnt}>
           {this.props.comp.sellPrice.map((item, index) => (
             <div
               key={index}
@@ -97,16 +98,21 @@ class Comp extends Component {
             </div>
           ))}
 
-        </td>
+        </div>
 
-        <td className={`${css.cell} ${css.price}`}>
+        <div className={css.price}>
           {this.props.comp.sellPrice.map((item, index) => (
-            <div key={index} className={css.priceItem}>{`${item.unitPrice.toFixed(2)} р`}</div>
+            <div
+              key={index}
+              className={css.priceItem}
+            >
+              {`${item.unitPrice.toFixed(2)} р`}
+            </div>
           ))}
-        </td>
+        </div>
 
 
-        <td className={`${css.cell} ${css.control}`}>
+        <div className={css.control}>
           <button
             className={css.btnMinus}
             onClick={this.btnMinusClick}>
@@ -123,21 +129,20 @@ class Comp extends Component {
             onBlur={this.handleBlur}
           />
           <button
-          className={css.btnPlus}
+            className={css.btnPlus}
             onClick={this.btnPlusClick}>
-              <FontAwesomeIcon 
-                icon={faPlus}
-                size="xs"
-              />
+            <FontAwesomeIcon
+              icon={faPlus}
+              size="xs"
+            />
           </button>
-        </td>
+        </div>
 
-        <td className={`${css.cell} ${css.total}`}>
-          {this.state.total}
-        </td>
+        <div className={css.total}>
+          {this.state.total} р
+        </div>
 
-        <td className={`${css.cell} ${css.cart}`}>
-
+        <div className={css.cart}>
           <button
             color="blue"
             onClick={() => console.log('Add to cart')}
@@ -148,9 +153,9 @@ class Comp extends Component {
               size="lg" />
             В корзину
           </button>
-        </td>
+        </div>
 
-      </tr>
+      </>
     );
   }
 }

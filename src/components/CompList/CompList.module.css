@@ -1,50 +1,18 @@
 .compList {
-  line-height: 1.2;
+  /* line-height: 1.2; */
 }
 
 .table {
-  margin: 0 -10px;
+  display: grid;
+  grid-template-columns: auto 1fr 62px 50px 50px 90px 60px 106px;
+  grid-gap: 10px;
 }
 
-/* .row {
-
+.table > div {
+  align-self: center;
 }
 
-.cell {
-  padding: 10px;
-  border: 1px solid black;
+.th {
+  justify-self: center;
+  font-weight: bold;
 }
-
-.photo {
-  width: 75px;
-  height: 75px;
-  background-color: #ccc;
-}
-
-.info {
-
-}
-
-.details {
-
-}
-
-.qnt {
-
-}
-
-.qntItem {
-  
-}
-
-.price {
-
-}
-
-.priceItem {
-
-}
-
-.control {
-
-} */

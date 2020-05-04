@@ -1,43 +1,28 @@
-.row {
-}
-
-.cell {
-  padding: 0 8px;
-}
-
 .photo {
   width: 75px;
   height: 75px;
   background-color: #ccc;
 }
 
-.info {
-  width: auto;
-}
-
 .details {
+  justify-self: center;
 }
 
 .qnt {
+  justify-self: center;
 }
 
-.qntItem:hover {
+.qntItem {
   color: #1e72bd;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.price {
-}
-
-.priceItem {
-}
-
 .control {
-  /* display: flex; */
+  justify-self: center;
 }
-
 .total {
+  justify-self: center;
 }
 
 .icon {
