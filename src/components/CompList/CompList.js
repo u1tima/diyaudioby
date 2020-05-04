@@ -18,7 +18,7 @@ class CompList extends Component {
 
   getSortProps() {
     const arr = this.state.components.map(comp => comp.techData.map(tech => tech.name));
-    
+
     // this.setState({ sortProps })
   }
 
@@ -29,7 +29,7 @@ class CompList extends Component {
       <div className={css.compList}>
 
         <div className={css.search}>
-          <input type="text" name="" id=""/>
+          <input type="text" name="" id="" />
         </div>
 
         {/* {this.state.sortProps.map((item, index) => (
@@ -40,14 +40,17 @@ class CompList extends Component {
 
           <thead>
 
-            <th></th>
-            <th>Наименование</th>
-            {/* <th>Характеристики</th> */}
-            <th colSpan='2'>Цена</th>
-            {/* <th>Цена</th> */}
-            <th>Заказ</th>
-            <th>Сумма</th>
-            <th>Корзина</th>
+            <tr>              
+              <th></th>
+              <th>Наименование</th>
+              {/* <th>Характеристики</th> */}
+              <th colSpan='2'>Цена</th>
+              {/* <th>Цена</th> */}
+              <th>Заказ</th>
+              <th>Сумма</th>
+              <th>Корзина</th>
+
+            </tr>
 
           </thead>
 

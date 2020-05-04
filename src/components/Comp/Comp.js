@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import css from './Comp.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 
 class Comp extends Component {
 
@@ -108,17 +108,28 @@ class Comp extends Component {
 
         <td className={`${css.cell} ${css.control}`}>
           <button
+            className={css.btnMinus}
             onClick={this.btnMinusClick}>
-
-            -
+            <FontAwesomeIcon
+              icon={faMinus}
+              size="xs"
+            />
           </button>
           <input
             type="text"
+            className={css.input}
             value={this.state.qnt}
             onChange={this.handleChange}
             onBlur={this.handleBlur}
           />
-          <button onClick={this.btnPlusClick}>+</button>
+          <button
+          className={css.btnPlus}
+            onClick={this.btnPlusClick}>
+              <FontAwesomeIcon 
+                icon={faPlus}
+                size="xs"
+              />
+          </button>
         </td>
 
         <td className={`${css.cell} ${css.total}`}>
@@ -126,13 +137,16 @@ class Comp extends Component {
         </td>
 
         <td className={`${css.cell} ${css.cart}`}>
-          <button className={css.testBtn}>
+
+          <button
+            color="blue"
+            onClick={() => console.log('Add to cart')}
+          >
             <FontAwesomeIcon
-              onClick={() => console.log('click')}
+              className={css.icon}
               icon={faCartPlus}
-              size="lg"
-            />
-             В корзину
+              size="lg" />
+            В корзину
           </button>
         </td>
 

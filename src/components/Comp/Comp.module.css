@@ -1,10 +1,8 @@
 .row {
-  /* border: 1px solid black; */
 }
 
 .cell {
-  padding: 0 10px;
-  /* border: 1px solid black; */
+  padding: 0 8px;
 }
 
 .photo {
@@ -14,6 +12,7 @@
 }
 
 .info {
+  width: auto;
 }
 
 .details {
@@ -41,16 +40,23 @@
 .total {
 }
 
-.testBtn {
-  display: inline-block;
+.icon {
+  margin-right: 5px;
+}
+
+.input {
+  width: 40px;
+  border-radius: 0px;
+  border-right: none;
+  border-left: none;
   text-align: center;
-  vertical-align: middle;
-  user-select: none;
-  border: 1px solid transparent;
-  /* font-size: 1rem; */
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  
+}
+
+.btnPlus {  
+  border-radius: 0 5px 5px 0;
+}
+
+.btnMinus {
+  border-radius: 5px 0 0 5px;
 }
