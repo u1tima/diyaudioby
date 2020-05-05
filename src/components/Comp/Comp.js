@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import css from './Comp.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus, faPlus, faMinus, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus, faPlus, faMinus, faTools } from '@fortawesome/free-solid-svg-icons';
+import src from '../../images/0805-(2012-Metric)_tmb.webp';
 
 class Comp extends Component {
 
@@ -69,25 +70,28 @@ class Comp extends Component {
 
     return (
 
-      <>
+      <tr className={css.row}>
 
-        <img className={css.photo} src="" alt="" />
+        <td className={css.image}>
+          <img className={css.photo} src={src} alt="" />
+        </td>
 
-        <div className={css.info}>
+
+        <td className={css.info}>
           <div className={css.name}>{this.props.comp.name}</div>
           <div className={css.manufacture}>{this.props.comp.manufacture.name}</div>
           <div className={css.partNumber}>{this.props.comp.partNumber}</div>
-        </div>
+        </td>
 
-        <div className={css.details}>
+        <td className={css.details}>
           <FontAwesomeIcon
-            icon={faChevronDown}
-          // size="lg"
+            icon={faTools}
+            size="lg"
           />
-        </div>
+        </td>
 
 
-        <div className={css.qnt}>
+        <td className={css.qnt}>
           {this.props.comp.sellPrice.map((item, index) => (
             <div
               key={index}
@@ -98,9 +102,9 @@ class Comp extends Component {
             </div>
           ))}
 
-        </div>
+        </td>
 
-        <div className={css.price}>
+        <td className={css.price}>
           {this.props.comp.sellPrice.map((item, index) => (
             <div
               key={index}
@@ -109,10 +113,10 @@ class Comp extends Component {
               {`${item.unitPrice.toFixed(2)} р`}
             </div>
           ))}
-        </div>
+        </td>
 
 
-        <div className={css.control}>
+        <td className={css.control}>
           <button
             className={css.btnMinus}
             onClick={this.btnMinusClick}>
@@ -136,15 +140,14 @@ class Comp extends Component {
               size="xs"
             />
           </button>
-        </div>
+        </td>
 
-        <div className={css.total}>
+        <td className={css.total}>
           {this.state.total} р
-        </div>
+        </td>
 
-        <div className={css.cart}>
+        <td className={css.cart}>
           <button
-            color="blue"
             onClick={() => console.log('Add to cart')}
           >
             <FontAwesomeIcon
@@ -153,9 +156,9 @@ class Comp extends Component {
               size="lg" />
             В корзину
           </button>
-        </div>
+        </td>
 
-      </>
+      </tr>
     );
   }
 }

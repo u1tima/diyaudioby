@@ -1,15 +1,29 @@
+.row {
+  border-top: 1px solid #dee2e6;
+}
+
+.image {
+  text-align: center;
+}
+
 .photo {
+  /* padding: 10px; */
   width: 75px;
   height: 75px;
-  background-color: #ccc;
+  /* background-color: #ccc; */
+}
+
+.info {
+  padding-left: 8px;
+  text-align: left;
 }
 
 .details {
-  justify-self: center;
+  width: 100px;
 }
 
 .qnt {
-  justify-self: center;
+  width: 100px;
 }
 
 .qntItem {
@@ -18,11 +32,15 @@
   cursor: pointer;
 }
 
+.price {
+  width: 100px;
+}
+
 .control {
-  justify-self: center;
+  width: 100px;
 }
 .total {
-  justify-self: center;
+  width: 100px;
 }
 
 .icon {
@@ -35,13 +53,16 @@
   border-right: none;
   border-left: none;
   text-align: center;
-  
 }
 
-.btnPlus {  
+.btnPlus {
   border-radius: 0 5px 5px 0;
 }
 
 .btnMinus {
   border-radius: 5px 0 0 5px;
+}
+
+.cart {
+  width: 120px;
 }

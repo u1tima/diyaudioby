@@ -32,22 +32,29 @@ class CompList extends Component {
           <button key={index}>{item}</button>
         ))} */}
 
-        <div className={css.table}>
+        <table className={css.table}>
 
-              <div className={css.th}>Фото</div>
-              <div className={css.th}>Наименование</div>
-              <div className={css.th}>Инфо</div>
-              <div className={css.th}>Кол-во</div>
-              <div className={css.th}>Цена</div>
-              <div className={css.th}>Заказ</div>
-              <div className={css.th}>Сумма</div>
-              <div className={css.th}>Корзина</div>
+          <thead>
+            <tr>
+              <th>Фото</th>
+              <th>Наименование</th>
+              <th>Инфо</th>
+              <th>Кол-во</th>
+              <th>Цена</th>
+              <th>Заказ</th>
+              <th>Сумма</th>
+              <th>Корзина</th>
+            </tr>
+          </thead>
+
+          <tbody>
 
             {this.state.components.map((item, index) => (
               <Comp key={index} comp={item} />
             ))}
 
-        </div >
+          </tbody>
+        </table >
       </div>
     );
   }

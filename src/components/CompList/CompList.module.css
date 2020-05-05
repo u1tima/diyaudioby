@@ -1,18 +1,19 @@
 .compList {
-  /* line-height: 1.2; */
 }
 
 .table {
-  display: grid;
-  grid-template-columns: auto 1fr 62px 50px 50px 90px 60px 106px;
-  grid-gap: 10px;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.table > div {
-  align-self: center;
+th {
+  padding: 8px;
 }
 
-.th {
-  justify-self: center;
-  font-weight: bold;
+tr:nth-of-type(even) {
+  /* background-color: #f3f3f3; */
+}
+
+td {
+  text-align: center;
 }
