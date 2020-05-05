@@ -7,7 +7,8 @@ const Navbar = () => {
   const menu = [
     { name: 'Радиодетали', pageLink: '/store/components' },
     { name: 'Киты', pageLink: '/store/kits' },
-    { name: 'Test', pageLink: '/test-page' },
+    { name: 'Test-comp', pageLink: '/test-page' },
+    { name: 'Test-kit', pageLink: '/test-kit' },
   ]
 
   const menuList = menu.map((item, index) => {
