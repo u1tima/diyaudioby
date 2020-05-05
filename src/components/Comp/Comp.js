@@ -28,10 +28,10 @@ class Comp extends Component {
     return (
       <>
         {this.props.comp.techData.map((tech, index) => (
-            <div key={index}>
-              {`${tech.name}: ${tech.value}${tech.units}`}
-            </div>
-          ))}
+          <div key={index}>
+            {`${tech.name}: ${tech.value}${tech.units}`}
+          </div>
+        ))}
       </>
     )
   }
@@ -103,7 +103,7 @@ class Comp extends Component {
             overlay={this.getTechData()}
             arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
           >
-           <div>{this.props.comp.name}</div>
+            <div>{this.props.comp.name}</div>
           </Tooltip>
           <div className={css.manufacture}>{this.props.comp.manufacture.name}</div>
           <div className={css.partNumber}>{this.props.comp.partNumber}</div>
@@ -125,8 +125,24 @@ class Comp extends Component {
           </Tooltip>
         </td>
 
+        <td className={css.price}>
+          {this.props.comp.sellPrice.map((item, index) => {
 
-        <td className={css.qnt}>
+            const { qnt, unitPrice } = item;
+            // const total = qnt * unitPrice;
+
+            return (
+              <div className={css.priceRow}>
+                <div className={css.qntItem} onClick={() => this.priceClick(index)}>{`${qnt}+`}</div>
+                <div className={css.priceItem}>{`${unitPrice.toFixed(2)} р`}</div>
+                {/* <div className={css.totalItem}>{`${total.toFixed(2)} р`}</div> */}
+              </div>
+            )
+          })}
+        </td>
+
+
+        {/* <td className={css.qnt}>
           {this.props.comp.sellPrice.map((item, index) => (
             <div
               key={index}
@@ -148,7 +164,7 @@ class Comp extends Component {
               {`${item.unitPrice.toFixed(2)} р`}
             </div>
           ))}
-        </td>
+        </td> */}
 
 
         <td className={css.control}>
