@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import css from './Comp.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus, faPlus, faMinus, faTools } from '@fortawesome/free-solid-svg-icons';
 import src from '../../images/0805-(2012-Metric)_tmb.webp';
-import Tooltip from 'rc-tooltip';
-import 'rc-tooltip/assets/bootstrap_white.css';
+
+import Details from '../Details/Details';
+import FormOrder from '../UI/FormOrder/FormOrder';
+import ButtonAddToCart from '../UI/ButtonAddToCart/ButtonAddToCart';
 
 class Comp extends Component {
 
@@ -24,7 +24,7 @@ class Comp extends Component {
     return price;
   }
 
-  getTechData() {
+  renderTechData() {
     return (
       <>
         {this.props.comp.techData.map((tech, index) => (
@@ -33,6 +33,20 @@ class Comp extends Component {
           </div>
         ))}
       </>
+    )
+  }
+
+  renderPriceData() {
+    return (
+      this.props.comp.sellPrice.map((item, index) => {
+        const { qnt, unitPrice } = item;
+        return (
+          <div className={css.priceRow}>
+            <div className={css.qntItem} onClick={() => this.priceClick(index)}>{`${qnt}+`}</div>
+            <div className={css.priceItem}>{`${unitPrice.toFixed(2)} р`}</div>
+          </div>
+        )
+      })
     )
   }
 
@@ -61,14 +75,14 @@ class Comp extends Component {
     this.setState({ qnt, price, total });
   }
 
-  handleChange = (event) => {
+  handleChange(event) {
     const qnt = +event.target.value;
     const price = this.getPrice(qnt);
     const total = qnt * price;
     this.setState({ qnt, price, total });
   }
 
-  handleBlur = (event) => {
+  handleBlur(event) {
     const minOrder = this.props.comp.minOrder;
     let qnt = +event.target.value;
     if (qnt < minOrder) {
@@ -80,6 +94,8 @@ class Comp extends Component {
     const total = qnt * price;
     this.setState({ qnt, price, total });
   }
+
+  addToCart = () => console.log('add to cart')
 
   render() {
 
@@ -93,104 +109,27 @@ class Comp extends Component {
 
 
         <td className={css.info}>
-          {/* <div className={css.name}>{this.props.comp.name}</div> */}
-
-          <Tooltip
-            placement="top"
-            align={{
-              offset: [0, -10]
-            }}
-            overlay={this.getTechData()}
-            arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
-          >
-            <div>{this.props.comp.name}</div>
-          </Tooltip>
+          <div className={css.name}>{this.props.comp.name}</div>
           <div className={css.manufacture}>{this.props.comp.manufacture.name}</div>
           <div className={css.partNumber}>{this.props.comp.partNumber}</div>
         </td>
 
         <td className={css.details}>
-          <Tooltip
-            placement="right"
-            align={{
-              offset: [10, 0]
-            }}
-            overlay={this.getTechData()}
-            arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
-          >
-            <FontAwesomeIcon
-              icon={faTools}
-              size="lg"
-            />
-          </Tooltip>
+          <Details data={this.renderTechData()} />
         </td>
 
         <td className={css.price}>
-          {this.props.comp.sellPrice.map((item, index) => {
-
-            const { qnt, unitPrice } = item;
-            // const total = qnt * unitPrice;
-
-            return (
-              <div className={css.priceRow}>
-                <div className={css.qntItem} onClick={() => this.priceClick(index)}>{`${qnt}+`}</div>
-                <div className={css.priceItem}>{`${unitPrice.toFixed(2)} р`}</div>
-                {/* <div className={css.totalItem}>{`${total.toFixed(2)} р`}</div> */}
-              </div>
-            )
-          })}
+          {this.renderPriceData()}
         </td>
-
-
-        {/* <td className={css.qnt}>
-          {this.props.comp.sellPrice.map((item, index) => (
-            <div
-              key={index}
-              className={css.qntItem}
-              onClick={() => this.priceClick(index)}
-            >
-              {`${item.qnt}+`}
-            </div>
-          ))}
-
-        </td>
-
-        <td className={css.price}>
-          {this.props.comp.sellPrice.map((item, index) => (
-            <div
-              key={index}
-              className={css.priceItem}
-            >
-              {`${item.unitPrice.toFixed(2)} р`}
-            </div>
-          ))}
-        </td> */}
-
 
         <td className={css.control}>
-          <button
-            className={css.btnMinus}
-            onClick={this.btnMinusClick}>
-            <FontAwesomeIcon
-              icon={faMinus}
-              size="xs"
-            />
-          </button>
-          <input
-            type="text"
-            className={css.input}
+          <FormOrder
             value={this.state.qnt}
-            onChange={this.handleChange}
-            onBlur={this.handleBlur}
+            btnMinusClick={this.btnMinusClick}
+            btnPlusClick={this.btnPlusClick}
+            onChange={(e) => this.handleChange(e)}
+            onBlur={(e) => this.handleBlur(e)}
           />
-          <button
-            className={css.btnPlus}
-            onClick={this.btnPlusClick}>
-            <FontAwesomeIcon
-              icon={faPlus}
-              size="xs"
-            />
-          </button>
         </td>
 
         <td className={css.total}>
@@ -198,15 +137,7 @@ class Comp extends Component {
         </td>
 
         <td className={css.cart}>
-          <button
-            onClick={() => console.log('Add to cart')}
-          >
-            <FontAwesomeIcon
-              className={css.icon}
-              icon={faCartPlus}
-              size="lg" />
-            В корзину
-          </button>
+          <ButtonAddToCart onClick={this.addToCart} />
         </td>
 
       </tr>
