@@ -3,6 +3,8 @@ import css from './Comp.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus, faPlus, faMinus, faTools } from '@fortawesome/free-solid-svg-icons';
 import src from '../../images/0805-(2012-Metric)_tmb.webp';
+import Tooltip from 'rc-tooltip';
+import 'rc-tooltip/assets/bootstrap_white.css';
 
 class Comp extends Component {
 
@@ -12,6 +14,7 @@ class Comp extends Component {
     total: 0,
   }
 
+
   getPrice(qnt) {
     if (qnt <= 0) return 0;
     let price = this.props.comp.sellPrice[0].unitPrice;
@@ -19,6 +22,18 @@ class Comp extends Component {
       if (qnt >= item.qnt) price = item.unitPrice;
     });
     return price;
+  }
+
+  getTechData() {
+    return (
+      <>
+        {this.props.comp.techData.map((tech, index) => (
+            <div key={index}>
+              {`${tech.name}: ${tech.value}${tech.units}`}
+            </div>
+          ))}
+      </>
+    )
   }
 
   priceClick(index) {
@@ -78,16 +93,36 @@ class Comp extends Component {
 
 
         <td className={css.info}>
-          <div className={css.name}>{this.props.comp.name}</div>
+          {/* <div className={css.name}>{this.props.comp.name}</div> */}
+
+          <Tooltip
+            placement="top"
+            align={{
+              offset: [0, -10]
+            }}
+            overlay={this.getTechData()}
+            arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
+          >
+           <div>{this.props.comp.name}</div>
+          </Tooltip>
           <div className={css.manufacture}>{this.props.comp.manufacture.name}</div>
           <div className={css.partNumber}>{this.props.comp.partNumber}</div>
         </td>
 
         <td className={css.details}>
-          <FontAwesomeIcon
-            icon={faTools}
-            size="lg"
-          />
+          <Tooltip
+            placement="right"
+            align={{
+              offset: [10, 0]
+            }}
+            overlay={this.getTechData()}
+            arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
+          >
+            <FontAwesomeIcon
+              icon={faTools}
+              size="lg"
+            />
+          </Tooltip>
         </td>
 
 
