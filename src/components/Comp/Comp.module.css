@@ -14,6 +14,7 @@
 }
 
 .info {
+  line-height: 1.3;
   padding-left: 8px;
   text-align: left;
 }
@@ -22,18 +23,28 @@
   width: 100px;
 }
 
-.qnt {
-  width: 100px;
+.price {
+
+  width: 120px;
+  padding-right: 20px;
+  line-height: 1.3;
+}
+
+.priceRow{
+  /* width: 100px; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.priceItem {
+  display: table-cell;
 }
 
 .qntItem {
+  display: table-cell;
   color: #1e72bd;
   text-decoration: underline;
   cursor: pointer;
-}
-
-.price {
-  width: 100px;
 }
 
 .control {

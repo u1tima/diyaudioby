@@ -39,7 +39,7 @@ class CompList extends Component {
               <th>Фото</th>
               <th>Наименование</th>
               <th>Инфо</th>
-              <th>Кол-во</th>
+              {/* <th>Кол-во</th> */}
               <th>Цена</th>
               <th>Заказ</th>
               <th>Сумма</th>
