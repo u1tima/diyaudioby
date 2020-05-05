@@ -17,3 +17,51 @@ th {
 td {
   text-align: center;
 }
+
+.caption {
+  background-color: #1e72bd;
+  color: #fff;
+  /* font-weight: bold; */
+}
+
+.qntItem {
+  color: #1e72bd;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.price {
+  line-height: 1.2;
+  width: 100px;
+}
+
+.control {
+  width: 100px;
+}
+.total {
+  width: 100px;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.input {
+  width: 40px;
+  border-radius: 0px;
+  border-right: none;
+  border-left: none;
+  text-align: center;
+}
+
+.btnPlus {
+  border-radius: 0 5px 5px 0;
+}
+
+.btnMinus {
+  border-radius: 5px 0 0 5px;
+}
+
+.cart {
+  width: 120px;
+}
