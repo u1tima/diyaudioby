@@ -5,6 +5,7 @@
  */
 
 module.exports = {
+  pathPrefix: "/diyaudioby",
   plugins: [
     {
       resolve: `gatsby-plugin-manifest`,
