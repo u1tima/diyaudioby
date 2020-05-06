@@ -6,8 +6,8 @@ import Comp from '../Comp/Comp';
 
 class CompList extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       components: elcap,
       sortProps: [],
@@ -26,7 +26,7 @@ class CompList extends Component {
 
     return (
 
-      <div className={css.compList}>
+      <div>
 
         {/* {this.state.sortProps.map((item, index) => (
           <button key={index}>{item}</button>
@@ -39,7 +39,6 @@ class CompList extends Component {
               <th>Фото</th>
               <th>Наименование</th>
               <th>Инфо</th>
-              {/* <th>Кол-во</th> */}
               <th>Цена</th>
               <th>Заказ</th>
               <th>Сумма</th>

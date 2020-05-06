@@ -1,6 +1,3 @@
-.compList {
-}
-
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -9,10 +6,6 @@
 th {
   padding: 8px;
 }
-
-/* tr:nth-of-type(even) {
-  background-color: #f3f3f3;
-} */
 
 td {
   text-align: center;

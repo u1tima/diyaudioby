@@ -8,12 +8,17 @@ import ButtonAddToCart from '../UI/ButtonAddToCart/ButtonAddToCart';
 
 class Comp extends Component {
 
-  state = {
-    qnt: 0,
-    price: 0,
-    total: 0,
-  }
+  constructor(props) {
+    super(props);
+    this.priceData = this.renderPriceData();
+    this.techData = this.renderTechData();
 
+    this.state = {
+      qnt: 0,
+      price: 0,
+      total: 0,
+    }
+  }
 
   getPrice(qnt) {
     if (qnt <= 0) return 0;
@@ -25,29 +30,23 @@ class Comp extends Component {
   }
 
   renderTechData() {
-    return (
-      <>
-        {this.props.comp.techData.map((tech, index) => (
-          <div key={index}>
-            {`${tech.name}: ${tech.value}${tech.units}`}
-          </div>
-        ))}
-      </>
-    )
+    return this.props.comp.techData.map((tech, index) => (
+      <div key={index}>
+        {`${tech.name}: ${tech.value}${tech.units}`}
+      </div>
+    ))
   }
 
   renderPriceData() {
-    return (
-      this.props.comp.sellPrice.map((item, index) => {
-        const { qnt, unitPrice } = item;
-        return (
-          <div className={css.priceRow}>
-            <div className={css.qntItem} onClick={() => this.priceClick(index)}>{`${qnt}+`}</div>
-            <div className={css.priceItem}>{`${unitPrice.toFixed(2)} р`}</div>
-          </div>
-        )
-      })
-    )
+    return this.props.comp.sellPrice.map((item, index) => {
+      const { qnt, unitPrice } = item;
+      return (
+        <div key={index} className={css.priceRow}>
+          <div className={css.qntItem} onClick={() => this.priceClick(index)}>{`${qnt}+`}</div>
+          <div className={css.priceItem}>{`${unitPrice.toFixed(2)} р`}</div>
+        </div>
+      )
+    })
   }
 
   priceClick(index) {
@@ -115,11 +114,11 @@ class Comp extends Component {
         </td>
 
         <td className={css.details}>
-          <Details data={this.renderTechData()} />
+          <Details data={this.techData} />
         </td>
 
         <td className={css.price}>
-          {this.renderPriceData()}
+          {this.priceData}
         </td>
 
         <td className={css.control}>
