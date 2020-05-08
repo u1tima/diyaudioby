@@ -9,7 +9,7 @@ class Part extends Component {
   constructor(props) {
     super(props);
     this.part = this.props.part;
-    this.comp = this.part.comp;
+    this.comp = this.props.part.comp;
     this.priceData = this.renderPriceData();
     this.techData = this.renderTechData();
 
@@ -51,7 +51,7 @@ class Part extends Component {
 
         <td className={css.info}>
           <div className={css.name}>{this.comp.name}</div>
-          {/* <div className={css.manufacture}>{this.comp.manufacture.name}</div> */}
+          <div className={css.manufacture}>{this.comp.manufacture.name}</div>
           {/* <div className={css.partNumber}>{this.comp.partNumber}</div> */}
         </td>
 
@@ -64,7 +64,7 @@ class Part extends Component {
         </td>
 
         <td className={css.price}>
-          {this.priceData}
+          {/* {this.priceData} */}
         </td>
 
         <td className={css.control}>

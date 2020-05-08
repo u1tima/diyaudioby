@@ -10,6 +10,7 @@ class Comp extends Component {
 
   constructor(props) {
     super(props);
+    this.comp = this.props.comp;
     this.priceData = this.renderPriceData();
     this.techData = this.renderTechData();
 
@@ -22,15 +23,15 @@ class Comp extends Component {
 
   getPrice(qnt) {
     if (qnt <= 0) return 0;
-    let price = this.props.comp.sellPrice[0].unitPrice;
-    this.props.comp.sellPrice.forEach(item => {
+    let price = this.comp.sellPrice[0].unitPrice;
+    this.comp.sellPrice.forEach(item => {
       if (qnt >= item.qnt) price = item.unitPrice;
     });
     return price;
   }
 
   renderTechData() {
-    return this.props.comp.techData.map((tech, index) => (
+    return this.comp.techData.map((tech, index) => (
       <div key={index}>
         {`${tech.name}: ${tech.value}${tech.units}`}
       </div>
@@ -38,7 +39,7 @@ class Comp extends Component {
   }
 
   renderPriceData() {
-    return this.props.comp.sellPrice.map((item, index) => {
+    return this.comp.sellPrice.map((item, index) => {
       const { qnt, unitPrice } = item;
       return (
         <div key={index} className={css.priceRow}>
@@ -50,14 +51,14 @@ class Comp extends Component {
   }
 
   priceClick(index) {
-    const qnt = this.props.comp.sellPrice[index].qnt;
-    const price = this.props.comp.sellPrice[index].unitPrice;
+    const qnt = this.comp.sellPrice[index].qnt;
+    const price = this.comp.sellPrice[index].unitPrice;
     const total = qnt * price;
     this.setState({ qnt, price, total })
   }
 
   btnPlusClick = () => {
-    const minOrder = this.props.comp.minOrder;
+    const minOrder = this.comp.minOrder;
     const qnt = this.state.qnt + minOrder;
     const price = this.getPrice(qnt);
     const total = qnt * price;
@@ -66,7 +67,7 @@ class Comp extends Component {
   }
 
   btnMinusClick = () => {
-    const minOrder = this.props.comp.minOrder;
+    const minOrder = this.comp.minOrder;
     let qnt = this.state.qnt - minOrder;
     if (qnt <= 0) qnt = 0;
     const price = this.getPrice(qnt);
@@ -82,7 +83,7 @@ class Comp extends Component {
   }
 
   handleBlur(event) {
-    const minOrder = this.props.comp.minOrder;
+    const minOrder = this.comp.minOrder;
     let qnt = +event.target.value;
     if (qnt < minOrder) {
       qnt = minOrder;
@@ -108,13 +109,14 @@ class Comp extends Component {
 
 
         <td className={css.info}>
-          <div className={css.name}>{this.props.comp.name}</div>
-          <div className={css.manufacture}>{this.props.comp.manufacture.name}</div>
-          <div className={css.partNumber}>{this.props.comp.partNumber}</div>
+          <div className={css.name}>{this.comp.name}</div>
+          <div className={css.manufacture}>{this.comp.manufacture.name}</div>
+          {/* <div className={css.partNumber}>{this.comp.partNumber}</div> */}
         </td>
 
         <td className={css.details}>
           <Details data={this.techData} />
+          {/* {this.techData} */}
         </td>
 
         <td className={css.price}>
