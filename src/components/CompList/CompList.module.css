@@ -5,10 +5,15 @@
   border-bottom: 1px solid #dee2e6;
 }
 
-th {
+th, td {
   padding: 8px;
 }
 
 td {
   text-align: center;
+  /* border: 1px solid black; */
+}
+
+.partnumber {
+  text-align: left;
 }

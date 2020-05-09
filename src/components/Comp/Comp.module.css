@@ -2,14 +2,12 @@
   border-top: 1px solid #dee2e6;
 }
 
-.image {
-  text-align: center;
+.manufacture {
+  font-size: 12px;
 }
 
 .photo {
-  /* padding: 10px; */
-
-  /* background-color: #ccc; */
+ width: 150px;
 }
 
 .info {
@@ -17,6 +15,13 @@
   padding-left: 8px;
   text-align: left;
 }
+
+.series,
+.cap,
+.voltage {
+  width: 50px;
+}
+
 
 .details {
   width: 100px;
@@ -26,8 +31,7 @@
 }
 
 .price {
-  width: 130px;
-  padding: 0 20px;
+  width: 100px;
   line-height: 1.3;
 }
 
@@ -49,7 +53,7 @@
 }
 
 .control {
-  width: 100px;
+  width: 110px;
 }
 .total {
   width: 70px;
@@ -76,5 +80,5 @@
 } */
 
 .cart {
-  width: 120px;
+  width: 80px;
 }

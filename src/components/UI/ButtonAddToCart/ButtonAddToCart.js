@@ -10,7 +10,6 @@ const ButtonAddToCart = (props) => {
         className={css.icon}
         icon={faCartPlus}
         size="lg" />
-        В корзину
     </button>
   );
 }

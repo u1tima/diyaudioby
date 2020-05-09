@@ -40,8 +40,8 @@ const data = [
   },
   {
     id: 1,
-    name: 'Panasonic FC 100uF x 16V',
-    partNumber: 'EEUFC1C101',
+    name: 'Panasonic FC 220uF x 50V',
+    partNumber: 'EEUFC1H221',
     body: '',
     manufacture: {
       id: 12,
@@ -53,12 +53,12 @@ const data = [
     },
     techData: [
       { name: 'Серия', value: 'FC', units: '', factor: 0 },
-      { name: 'Емкость', value: 100, units: 'uF', factor: 1e-6 },
-      { name: 'Напряжение', value: 16, units: 'V', factor: 0 },
+      { name: 'Емкость', value: 220, units: 'uF', factor: 1e-6 },
+      { name: 'Напряжение', value: 50, units: 'V', factor: 0 },
       { name: 'Полярность', value: 'Bipolar', units: '', factor: 0 },
-      { name: 'Диаметр', value: 6.3, units: 'мм', factor: 0 },
-      { name: 'Высота', value: 12, units: 'мм', factor: 0 },
-      { name: 'Шаг', value: 2.5, units: 'мм', factor: 0 },
+      { name: 'Диаметр', value: 10, units: 'мм', factor: 0 },
+      { name: 'Высота', value: 20, units: 'мм', factor: 0 },
+      { name: 'Шаг', value: 5, units: 'мм', factor: 0 },
     ],
     storaqe: [
       { id: 1, name: 'C-23', qnt: 230 },
@@ -79,8 +79,8 @@ const data = [
   },
   {
     id: 1,
-    name: 'Panasonic FC 100uF x 16V',
-    partNumber: 'EEUFC1C101',
+    name: 'Panasonic FC 470uF x 35V',
+    partNumber: 'EEUFC1V471B',
     body: '',
     manufacture: {
       id: 12,
@@ -92,12 +92,12 @@ const data = [
     },
     techData: [
       { name: 'Серия', value: 'FC', units: '', factor: 0 },
-      { name: 'Емкость', value: 100, units: 'uF', factor: 1e-6 },
-      { name: 'Напряжение', value: 16, units: 'V', factor: 0 },
+      { name: 'Емкость', value: 470, units: 'uF', factor: 1e-6 },
+      { name: 'Напряжение', value: 35, units: 'V', factor: 0 },
       { name: 'Полярность', value: 'Bipolar', units: '', factor: 0 },
-      { name: 'Диаметр', value: 6.3, units: 'мм', factor: 1e-3 },
-      { name: 'Высота', value: 12, units: 'мм', factor: 1e-3 },
-      { name: 'Шаг', value: 2.5, units: 'мм', factor: 1e-3 },
+      { name: 'Диаметр', value: 10, units: 'мм', factor: 1e-3 },
+      { name: 'Высота', value: 22, units: 'мм', factor: 1e-3 },
+      { name: 'Шаг', value: 5, units: 'мм', factor: 1e-3 },
     ],
     storaqe: [
       { id: 1, name: 'C-23', qnt: 230 },
@@ -118,8 +118,8 @@ const data = [
   },
   {
     id: 1,
-    name: 'Panasonic FC 100uF x 16V',
-    partNumber: 'EEUFC1C101',
+    name: 'Panasonic FC 1000uF x 50V',
+    partNumber: 'EEUFC1H102',
     body: '',
     manufacture: {
       id: 12,
@@ -131,12 +131,12 @@ const data = [
     },
     techData: [
       { name: 'Серия', value: 'FC', units: '', factor: 0 },
-      { name: 'Емкость', value: 100, units: 'uF', factor: 1e-6 },
-      { name: 'Напряжение', value: 16, units: 'V', factor: 0 },
+      { name: 'Емкость', value: 1000, units: 'uF', factor: 1e-6 },
+      { name: 'Напряжение', value: 50, units: 'V', factor: 0 },
       { name: 'Полярность', value: 'Bipolar', units: '', factor: 0 },
-      { name: 'Диаметр', value: 6.3, units: 'мм', factor: 1e-3 },
-      { name: 'Высота', value: 12, units: 'мм', factor: 1e-3 },
-      { name: 'Шаг', value: 2.5, units: 'мм', factor: 1e-3 },
+      { name: 'Диаметр', value: 16, units: 'мм', factor: 1e-3 },
+      { name: 'Высота', value: 25, units: 'мм', factor: 1e-3 },
+      { name: 'Шаг', value: 7.5, units: 'мм', factor: 1e-3 },
     ],
     storaqe: [
       { id: 1, name: 'C-23', qnt: 230 },
@@ -157,8 +157,8 @@ const data = [
   },
   {
     id: 1,
-    name: 'Panasonic FC 100uF x 16V',
-    partNumber: 'EEUFC1C101',
+    name: 'Panasonic FC 4700uF x 16V',
+    partNumber: 'EEUFC1C472',
     body: '',
     manufacture: {
       id: 12,
@@ -170,12 +170,12 @@ const data = [
     },
     techData: [
       { name: 'Серия', value: 'FC', units: '', factor: 0 },
-      { name: 'Емкость', value: 100, units: 'uF', factor: 1e-6 },
+      { name: 'Емкость', value: 4700, units: 'uF', factor: 1e-6 },
       { name: 'Напряжение', value: 16, units: 'V', factor: 0 },
       { name: 'Полярность', value: 'Bipolar', units: '', factor: 0 },
-      { name: 'Диаметр', value: 6.3, units: 'мм', factor: 1e-3 },
-      { name: 'Высота', value: 12, units: 'мм', factor: 1e-3 },
-      { name: 'Шаг', value: 2.5, units: 'мм', factor: 1e-3 },
+      { name: 'Диаметр', value: 16, units: 'мм', factor: 1e-3 },
+      { name: 'Высота', value: 32, units: 'мм', factor: 1e-3 },
+      { name: 'Шаг', value: 7.5, units: 'мм', factor: 1e-3 },
     ],
     storaqe: [
       { id: 1, name: 'C-23', qnt: 230 },

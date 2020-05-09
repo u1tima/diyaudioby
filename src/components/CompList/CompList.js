@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import css from './CompList.module.css';
 // import elcap from '../../data/database/elcap';
 import Comp from '../Comp/Comp';
+import Elem from '../Elem/Elem';
 
 
 class CompList extends Component {
@@ -29,9 +30,15 @@ class CompList extends Component {
 
           <thead>
             <tr>
-              <th>Фото</th>
-              <th>Наименование</th>
-              <th>Инфо</th>
+              {/* <th>Фото</th> */}
+              <th className={css.partnumber}>Наименование</th>
+              {/* <th>Инфо</th> */}
+              <th>Серия</th>
+              <th>Емкость</th>
+              <th>Напряжениe</th>
+              <th>D, mm</th>
+              <th>H, mm</th>
+              <th>LS, mm</th>
               <th>Цена</th>
               <th>Заказ</th>
               <th>Сумма</th>

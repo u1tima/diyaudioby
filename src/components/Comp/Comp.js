@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import css from './Comp.module.css';
-import src from '../../images/0805-(2012-Metric)_tmb.webp';
+import src from '../../images/fc-3300-50.jpg';
+import Tooltip from 'rc-tooltip';
+import 'rc-tooltip/assets/bootstrap_white.css';
 
 import Details from '../Details/Details';
 import FormOrder from '../UI/FormOrder/FormOrder';
@@ -59,10 +61,11 @@ class Comp extends Component {
 
   btnPlusClick = () => {
     const minOrder = this.comp.minOrder;
-    const qnt = this.state.qnt + minOrder;
-    const price = this.getPrice(qnt);
-    const total = qnt * price;
-    this.setState({ qnt, price, total });
+    this.qnt = this.state.qnt + minOrder;
+    const price = this.getPrice(this.qnt);
+    const total = this.qnt * price;
+    this.setState({ qnt: this.qnt, price, total });
+    // this.setState({ qnt, price, total });
 
   }
 
@@ -95,6 +98,14 @@ class Comp extends Component {
     this.setState({ qnt, price, total });
   }
 
+  renderCartButton() {
+    return (
+      <td className={css.cart}>
+        <ButtonAddToCart onClick={this.addToCart} />
+      </td>
+    )
+  }
+
   addToCart = () => console.log('add to cart')
 
   render() {
@@ -103,20 +114,50 @@ class Comp extends Component {
 
       <tr className={css.row}>
 
-        <td className={css.image}>
+        {/* <td className={css.image}>
           <img className={css.photo} src={src} alt="" />
-        </td>
+        </td> */}
 
 
         <td className={css.info}>
-          <div className={css.name}>{this.comp.name}</div>
+
+          <Tooltip
+            placement="left"
+            align={{
+              offset: [-10, 0]
+            }}
+            overlay={<img className={css.photo} src={src} />}
+            arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
+          >
+            <div className={css.partNumber}>{this.comp.partNumber}</div>
+
+          </Tooltip>
+
           <div className={css.manufacture}>{this.comp.manufacture.name}</div>
-          {/* <div className={css.partNumber}>{this.comp.partNumber}</div> */}
         </td>
 
-        <td className={css.details}>
-          <Details data={this.techData} />
-          {/* {this.techData} */}
+        <td className={css.series}>
+          {this.comp.techData[0].value + this.comp.techData[0].units}
+        </td>
+
+        <td className={css.cap}>
+          {this.comp.techData[1].value + this.comp.techData[1].units}
+        </td>
+
+        <td className={css.voltage}>
+          {this.comp.techData[2].value + this.comp.techData[2].units}
+        </td>
+
+        <td className={css.voltage}>
+          {this.comp.techData[4].value}
+        </td>
+
+        <td className={css.voltage}>
+          {this.comp.techData[5].value}
+        </td>
+
+        <td className={css.voltage}>
+          {this.comp.techData[6].value}
         </td>
 
         <td className={css.price}>
@@ -137,9 +178,11 @@ class Comp extends Component {
           {this.state.total} р
         </td>
 
-        <td className={css.cart}>
+        {/* <td className={css.cart}>
           <ButtonAddToCart onClick={this.addToCart} />
-        </td>
+        </td> */}
+
+        {this.renderCartButton()}
 
       </tr>
     );
