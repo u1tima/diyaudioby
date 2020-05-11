@@ -1,13 +1,5 @@
-.info {
-  line-height: 1.3;
-  padding-left: 8px;
-  text-align: left;
-}
-
-.partNumber {
-  color: #1e72bd;
-  text-decoration: underline;
-  cursor: pointer;
+.row {
+  border-top: 1px solid #dee2e6;
 }
 
 .manufacture {
@@ -15,7 +7,27 @@
 }
 
 .photo {
-  width: 150px;
+ width: 150px;
+}
+
+.info {
+  line-height: 1.3;
+  padding-left: 8px;
+  text-align: left;
+}
+
+.series,
+.cap,
+.voltage {
+  width: 50px;
+}
+
+
+.details {
+  width: 100px;
+  /* line-height: 1.3;
+  font-size: 10px;
+  text-align: left; */
 }
 
 .price {
@@ -23,12 +35,18 @@
   line-height: 1.3;
 }
 
-.price .priceRow {
+.priceRow {
+  /* width: 100px; */
   display: flex;
   justify-content: space-between;
 }
 
-.price .qntItem {
+.priceItem {
+  display: table-cell;
+}
+
+.qntItem {
+  display: table-cell;
   color: #1e72bd;
   text-decoration: underline;
   cursor: pointer;
@@ -37,8 +55,15 @@
 .control {
   width: 110px;
 }
+.total {
+  width: 70px;
+}
 
-.control .input {
+/* .icon {
+  margin-right: 5px;
+} */
+
+/* .input {
   width: 40px;
   border-radius: 0px;
   border-right: none;
@@ -46,25 +71,14 @@
   text-align: center;
 }
 
-.control .btnPlus {
+.btnPlus {
   border-radius: 0 5px 5px 0;
 }
 
-.control .btnMinus {
+.btnMinus {
   border-radius: 5px 0 0 5px;
-}
-
-.total {
-  width: 70px;
-}
+} */
 
 .cart {
   width: 80px;
-}
-
-/* .cart .button{
-} */
-
-.cart .icon {
-  margin-right: 5px;
 }
