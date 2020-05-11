@@ -12,12 +12,12 @@ class ElcapList extends Component {
         <thead>
           <tr>
             <th className={css.partnumber}>PartNumber</th>
-            <th className={css.series}>Series</th>
-            <th className={css.cap}>Cap</th>
-            <th>Volt</th>
-            <th>D, mm</th>
-            <th>H, mm</th>
-            <th>LS, mm</th>
+            <th className={css.min}>Серия</th>
+            <th className={css.min}>Ёмкость</th>
+            <th className={css.min}>Напряжение</th>
+            <th className={css.min}>D, mm</th>
+            <th className={css.min}>H, mm</th>
+            <th className={css.min}>LS, mm</th>
             <th>Цена</th>
             <th>Заказ</th>
             <th>Сумма</th>

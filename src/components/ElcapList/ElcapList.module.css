@@ -9,7 +9,8 @@ tr {
   border-top: 1px solid #dee2e6;
 }
 
-th, td {
+th,
+td {
   padding: 8px;
 }
 
@@ -22,7 +23,6 @@ td {
   text-align: left;
 }
 
-.series, 
-.cap {
+.min {
   width: 10px;
 }
