@@ -1,11 +1,7 @@
 import React from 'react';
-import Comp from '../Comp/Comp';
+import Comp from '../Elem/Comp';
 
 class Elcap extends Comp {
-
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import css from './Comp.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faMinus, faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faMinus, faSyncAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Tooltip from 'rc-tooltip';
 import 'rc-tooltip/assets/bootstrap_white.css';
 import src from '../../images/fc-3300-50.jpg';
@@ -16,6 +16,7 @@ class Comp extends Component {
       qnt: 0,
       price: 0,
       total: 0,
+      isAddedToCart: true
     }
   }
 
@@ -72,7 +73,10 @@ class Comp extends Component {
     this.setState({ qnt, price, total });
   }
 
-  addToCart = () => console.log(this.comp)
+  addToCart = () => {
+    this.setState({ isAddedToCart: !this.state.isAddedToCart });
+    console.log('works')
+  }
 
   renderPartNumber() {
     return (
@@ -87,6 +91,27 @@ class Comp extends Component {
           arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
         >
           <div className={css.partNumber}>{this.comp.partNumber}</div>
+        </Tooltip>
+
+        <div className={css.manufacture}>{this.comp.manufacture.name}</div>
+
+      </td>
+    )
+  }
+
+  renderPartName() {
+    return (
+      <td className={css.info}>
+
+        <Tooltip
+          placement="left"
+          align={{
+            offset: [-10, 0]
+          }}
+          overlay={<img className={css.photo} src={src} />}
+          arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
+        >
+          <div className={css.partName}>{this.comp.name}</div>
         </Tooltip>
 
         <div className={css.manufacture}>{this.comp.manufacture.name}</div>
@@ -149,12 +174,29 @@ class Comp extends Component {
   renderCartButton() {
     return (
       <td className={css.cart}>
-        <button className={css.button} onClick={this.addToCart}>
-          <FontAwesomeIcon
-            className={css.icon}
-            icon={faCartPlus}
-            size="lg" />
-        </button>
+
+        {
+          this.state.isAddedToCart
+            ? <button className={css.buttonAdd} onClick={this.addToCart}>В корзину</button>
+
+            : <>
+              <button className={css.buttonRefresh} onClick={this.addToCart}>
+                <FontAwesomeIcon
+                  className={css.icon}
+                  icon={faSyncAlt}
+                // size="lg"
+                />
+              </button>
+
+              <button className={css.buttonRemove} onClick={this.addToCart}>
+                <FontAwesomeIcon
+                  className={css.icon}
+                  icon={faTimes}
+                // size="lg"
+                />
+              </button>
+            </>
+        }
       </td>
     )
   }

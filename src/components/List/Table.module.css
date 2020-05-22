@@ -14,13 +14,19 @@ td {
   padding: 8px;
 }
 
-td {
-  text-align: center;
-  /* border: 1px solid black; */
+/* th:first-child, */
+td:first-child {
+  padding-left: 0;
+  text-align: left;
 }
 
-.partnumber {
-  text-align: left;
+/* th:last-child, */
+td:last-child {
+  padding-right: 0;
+}
+
+td {
+  text-align: center;
 }
 
 .min {

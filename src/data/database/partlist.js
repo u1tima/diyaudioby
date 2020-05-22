@@ -3,7 +3,7 @@ const data = {
   parts: [
     { type: 'caption', name: 'Конденсаторы SMD 0805 Yageo CC0805 (кратно 10 шт)' },
     {
-      type: 'part', position: 'OUT: C33, C34', asmQnt: 2, comp: {
+      type: 'part', position: 'OUT: C33, C34, C33, C34, C33, C34', asmQnt: 2, comp: {
         id: 1,
         name: 'Panasonic FC 100uF x 16V',
         partNumber: 'EEUFC1C101',
