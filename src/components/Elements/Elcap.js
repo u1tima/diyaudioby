@@ -1,5 +1,5 @@
 import React from 'react';
-import Comp from '../Elem/Comp';
+import Comp from '../Comp/Comp';
 
 class Elcap extends Comp {
 

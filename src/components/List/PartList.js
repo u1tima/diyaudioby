@@ -20,8 +20,8 @@ class PartList extends Component {
           <tr className={css.row}>
             <th>Позиция</th>
             <th>Наименование</th>
-            <th>Кол-во</th>
             <th>Инфо</th>
+            <th>Кол-во</th>
             <th>Цена</th>
             <th>Заказ</th>
             <th>Сумма</th>
