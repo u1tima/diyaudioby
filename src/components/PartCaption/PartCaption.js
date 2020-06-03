@@ -3,7 +3,7 @@ import css from './PartCaption.module.css';
 
 const PartCaption = (props) => {
   return (
-    <tr className={css.row}>
+    <tr>
       <td className={css.caption} colSpan='8'>{props.caption.name}</td>
     </tr>
   );

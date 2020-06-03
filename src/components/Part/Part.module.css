@@ -1,3 +1,9 @@
 .pos {
   width: 120px;
 }
+
+.qntItem {
+  color: #1e72bd;
+  text-decoration: underline;
+  cursor: pointer;
+}

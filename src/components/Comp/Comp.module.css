@@ -1,8 +1,13 @@
 /* Comp Css */
 
-.info {
+.infoPartNumber,
+.infoPartName {
   line-height: 1.3;
   text-align: left;
+}
+
+.infoPartNumber {
+  padding-left: 0;
 }
 
 .partNumber, 
@@ -62,6 +67,7 @@
 
 .cart {
   width: 90px;
+  padding-right: 0;
 }
 
 .cart .buttonAdd, 

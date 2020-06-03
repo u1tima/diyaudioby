@@ -10,6 +10,14 @@ class Part extends Comp {
 		this.part = this.props.part;
 	}
 
+	asmQntClick = () => {
+		let qnt = this.part.asmQnt;
+		if (qnt < this.minOrder) qnt = this.minOrder;
+		const price = this.getPrice(qnt);
+		const total = qnt * price;
+		this.setState({ qnt, price, total })
+	}
+
 	renderPartPosition() {
 		return (
 			<td className={css.pos}>{this.part.position}</td>
@@ -18,7 +26,9 @@ class Part extends Comp {
 
 	renderAsmQnt() {
 		return (
-			<td className={css.asmQnt}>{this.part.asmQnt}</td>
+			<td className={css.asmQnt}>
+				<div className={css.qntItem} onClick={this.asmQntClick}>{this.part.asmQnt}</div>
+			</td>
 		)
 	}
 

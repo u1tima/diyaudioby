@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import css from './Table.module.css';
-import NewPart from '../Part/Part';
+import Part from '../Part/Part';
 import PartCaption from '../PartCaption/PartCaption';
 
 class PartList extends Component {
@@ -33,7 +33,7 @@ class PartList extends Component {
 
           {this.project.parts.map((item, index) => (
             item.type === 'part'
-              ? <NewPart key={index} part={item} comp={item.comp} />
+              ? <Part key={index} part={item} comp={item.comp} />
               : <PartCaption key={index} caption={item} />
           ))}
 

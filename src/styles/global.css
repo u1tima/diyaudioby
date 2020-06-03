@@ -1,5 +1,10 @@
-@import "../fonts/ubuntu/ubuntu.css";
+@import '../../node_modules/rsuite/dist/styles/rsuite-default.css';
 
+body{
+  background-color: #e6e6e6;
+}
+/* @import "../fonts/ubuntu/ubuntu.css"; */
+/* 
 *,
 *::before,
 *::after {
@@ -24,9 +29,9 @@ blockquote,
 dl,
 dd {
   margin: 0;
-}
+} */
 
-body {
+/* body {
   min-height: 100vh;
   background-color: #e6e6e6;
   scroll-behavior: smooth;
@@ -34,9 +39,9 @@ body {
   line-height: 1.5;
   font-size: 14px;
   font-family: "Ubuntu", Helvetica, Arial, sans-serif;
-}
+} */
 
-ul,
+/* ul,
 ol {
   margin: 0;
   padding: 0;
@@ -60,7 +65,6 @@ textarea {
   font-size: inherit;
   padding: 0.4em;
   margin: 0;
-  /* margin: 0 0 0.5em 0; */
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -90,4 +94,4 @@ button:not(:disabled):active {
 
 button:focus {
   border-color: #666;
-}
+} */

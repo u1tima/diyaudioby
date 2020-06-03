@@ -29,7 +29,7 @@ class Comp extends Component {
     return price;
   }
 
-  priceClick(index) {
+  qntClick(index) {
     const qnt = this.comp.sellPrice[index].qnt;
     const price = this.comp.sellPrice[index].unitPrice;
     const total = qnt * price;
@@ -80,7 +80,7 @@ class Comp extends Component {
 
   renderPartNumber() {
     return (
-      <td className={css.info}>
+      <td className={css.infoPartNumber}>
 
         <Tooltip
           placement="left"
@@ -101,7 +101,7 @@ class Comp extends Component {
 
   renderPartName() {
     return (
-      <td className={css.info}>
+      <td className={css.infoPartName}>
 
         <Tooltip
           placement="left"
@@ -125,7 +125,7 @@ class Comp extends Component {
       <td className={css.price}>
         {this.comp.sellPrice.map((item, index) => (
           <div key={index} className={css.priceRow}>
-            <div className={css.qntItem} onClick={() => this.priceClick(index)}>{`${item.qnt}+`}</div>
+            <div className={css.qntItem} onClick={() => this.qntClick(index)}>{`${item.qnt}+`}</div>
             <div className={css.priceItem}>{`${item.unitPrice.toFixed(2)} р`}</div>
           </div>
         ))}
