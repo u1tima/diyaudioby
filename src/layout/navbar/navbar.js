@@ -5,10 +5,8 @@ import { Link } from 'gatsby';
 const Navbar = () => {
 
   const menu = [
-    { name: 'Радиодетали', pageLink: '/store/components' },
-    { name: 'Киты', pageLink: '/store/kits' },
-    { name: 'Test-comp', pageLink: '/test-page' },
-    { name: 'Test-kit', pageLink: '/test-kit' },
+
+    { name: 'Test', pageLink: '/test' },
   ]
 
   const menuList = menu.map((item, index) => {

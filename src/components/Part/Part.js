@@ -1,66 +1,39 @@
-import React from 'react';
-import Comp from '../Comp/Comp';
+import React, { Component } from 'react';
 import css from './Part.module.css';
-import Details from '../Details/Details';
+import State from '../State/State';
+import { Icon } from 'rsuite';
 
-class Part extends Comp {
+const Part = ({ part }) => {
 
-	constructor(props) {
-		super(props);
-		this.part = this.props.part;
-	}
+  const { comp, asmQnt } = part;
 
-	asmQntClick = () => {
-		let qnt = this.part.asmQnt;
-		if (qnt < this.minOrder) qnt = this.minOrder;
-		const price = this.getPrice(qnt);
-		const total = qnt * price;
-		this.setState({ qnt, price, total })
-	}
+  const showPartName = () => (
+    <td>
+      <div>{comp.name}</div>
+      <div>{comp.manufacture.name}</div>
+    </td>
+  )
 
-	renderPartPosition() {
-		return (
-			<td className={css.pos}>{this.part.position}</td>
-		)
-	}
+  const showFullInfo = () => (
+    <td>
+      <Icon icon="cog" size="lg"/>
+    </td>
+  )
 
-	renderAsmQnt() {
-		return (
-			<td className={css.asmQnt}>
-				<div className={css.qntItem} onClick={this.asmQntClick}>{this.part.asmQnt}</div>
-			</td>
-		)
-	}
+  const showPosition = () => (
+    <td>
+      {part.position}
+    </td>
+  )
 
-	getFullInfo() {
-		const techData = this.comp.techData.map((tech, index) => (
-			<div key={index}>
-				{`${tech.name}: ${tech.value}${tech.units}`}
-			</div>
-		));
-
-		return (
-			<td className={css.details}>
-				<Details data={techData} />
-			</td>
-		)
-	}
-
-	render() {
-		return (
-			<tr>
-				{this.renderPartPosition()}
-				{this.renderPartName()}
-				{this.getFullInfo()}
-				{this.renderAsmQnt()}
-				{this.renderPrice()}
-				{this.renderControl()}
-				{this.renderTotal()}
-				{this.renderCartButton()}
-			</tr>
-
-		)
-	}
+  return (
+    <>
+      {showPosition()}
+      {showPartName()}
+      {showFullInfo()}
+      <State comp={comp} asmQnt={asmQnt} />
+    </>
+  );
 }
 
-export default Part
+export default Part;

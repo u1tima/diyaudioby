@@ -1,0 +1,32 @@
+
+.price {
+  /* width: 100px; */
+}
+
+.price .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.asmQnt,
+.price .item {
+  color: #1e72bd;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.control {
+  /* width: 80px; */
+}
+
+.control input {
+  text-align: center;
+}
+
+.total {
+  /* width: 60px; */
+}
+
+.cart {
+  /* width: 110px; */
+}

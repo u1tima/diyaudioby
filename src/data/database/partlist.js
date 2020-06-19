@@ -1,6 +1,6 @@
-const data = {
+const project = {
   name: 'PSL-3604',
-  parts: [
+  partlist: [
     { type: 'caption', name: 'Конденсаторы SMD 0805 Yageo CC0805 (кратно 10 шт)' },
     {
       type: 'part', position: 'OUT: C33, C34', asmQnt: 2, comp: {
@@ -170,4 +170,4 @@ const data = {
   ]
 }
 
-export default data;
+export default project;
