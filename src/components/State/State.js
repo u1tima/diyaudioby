@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import css from './State.module.css';
+import { connect } from 'react-redux';
 import { Button, IconButton, Icon, InputNumber } from 'rsuite';
+import { addToCart } from '../../store/store';
+import css from './State.module.css';
 
-const State = ({ view, comp, asmQnt }) => {
+const State = ({ view, comp, asmQnt, onAddToCart, count }) => {
 
   const { minOrder, sellPrice } = comp;
 
@@ -18,13 +20,14 @@ const State = ({ view, comp, asmQnt }) => {
   useEffect(() => {
     if (state.inCart) console.log({ ...comp, ...state })
   }, [state.inCart]);
+  
 
-  const onAddToCart = () => {
-    if (state.orderQnt > 0) {
-      const inCart = true;
-      setState(state => ({ ...state, inCart }));
-    }
-  }
+  // const onAddToCart = (comp) => {
+  //   if (state.orderQnt > 0) {
+  //     const inCart = true;
+  //     setState(state => ({ ...state, inCart }));
+  //   }
+  // }
 
   const onRefreshCart = () => { console.log('refresh') };
 
@@ -112,7 +115,7 @@ const State = ({ view, comp, asmQnt }) => {
 
   const showAddButton = () => (
     <td>
-      <Button size='sm' appearance="primary" onClick={onAddToCart}>
+      <Button size='sm' appearance="primary" onClick={() => onAddToCart({...comp, ...state})}>
         В корзину
       </Button>
     </td>
@@ -121,8 +124,8 @@ const State = ({ view, comp, asmQnt }) => {
   const showRefreshButton = () => (
     <td>
       {/* <div className={css.buttons}> */}
-        <IconButton onClick={onRefreshCart} size='sm' color="green" icon={<Icon icon="refresh" />} />
-        <IconButton onClick={onDeleteFromCart} size='sm' color="red" icon={<Icon icon="close" />} />
+      <IconButton onClick={onRefreshCart} size='sm' color="green" icon={<Icon icon="refresh" />} />
+      <IconButton onClick={onDeleteFromCart} size='sm' color="red" icon={<Icon icon="close" />} />
       {/* </div> */}
     </td>
   )
@@ -166,4 +169,12 @@ const State = ({ view, comp, asmQnt }) => {
   )
 }
 
-export default State;
+const mapStateToProps = state => console.log(state.count);
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddToCart: comp => dispatch((addToCart(comp)))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(State);

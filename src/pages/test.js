@@ -12,10 +12,6 @@ import complist from '../data/database/elcap';
 import project from '../data/database/partlist';
 import cart from '../data/database/cart';
 
-// for cart
-import { Button, IconButton, Icon, InputNumber } from 'rsuite';
-
-
 export default () => (
   <Layout>
     <Sidebar side='left'></Sidebar>
@@ -43,7 +39,7 @@ export default () => (
 
         <tbody>
 
-          <Comp comp={complist[0]} view={"comp"}/>
+          <Comp comp={complist[0]} />
           <Comp comp={complist[1]} />
 
         </tbody>

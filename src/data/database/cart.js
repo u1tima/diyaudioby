@@ -37,9 +37,6 @@ const cart = [
     //   { date: '12-03-2007', qnt: 100, unitPrice: 10 },
     // ],
     minOrder: 1,
-    qnt: 100,
-    price: 10,
-    total: 1000,
   },
   {
     id: 1,
@@ -79,9 +76,6 @@ const cart = [
     //   { date: '12-03-2007', qnt: 100, unitPrice: 10 },
     // ],
     minOrder: 1,
-    qnt: 50,
-    price: 12,
-    total: 600,
   },
   {
     id: 1,
@@ -121,9 +115,6 @@ const cart = [
     //   { date: '12-03-2007', qnt: 100, unitPrice: 10 },
     // ],
     minOrder: 1,
-    qnt: 10,
-    price: 22,
-    total: 220,
   },
   {
     id: 1,
@@ -154,9 +145,6 @@ const cart = [
       { qnt: 25, unitPrice: 10 },
     ],
     minOrder: 1,
-    qnt: 150,
-    price: 5,
-    total: 750,
   },
 ]
 
