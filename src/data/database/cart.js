@@ -25,7 +25,7 @@ const cart = [
     //   { id: 1, name: 'C-23', qnt: 230 },
     //   { id: 23, name: 'B-29', qnt: 12 },
     // ],
-    totalqnt: 242,
+    stockQnt: 242,
     sellPrice: [
       { qnt: 1, unitPrice: 20 },
       { qnt: 10, unitPrice: 15 },
@@ -67,7 +67,7 @@ const cart = [
     //   { id: 1, name: 'C-23', qnt: 230 },
     //   { id: 23, name: 'B-29', qnt: 12 },
     // ],
-    totalqnt: 242,
+    stockQnt: 242,
     sellPrice: [
       { qnt: 1, unitPrice: 20 },
       { qnt: 10, unitPrice: 15 },
@@ -109,7 +109,7 @@ const cart = [
     //   { id: 1, name: 'C-23', qnt: 230 },
     //   { id: 23, name: 'B-29', qnt: 12 },
     // ],
-    totalqnt: 242,
+    stockQnt: 242,
     sellPrice: [
       { qnt: 1, unitPrice: 20 },
       { qnt: 10, unitPrice: 15 },
@@ -147,7 +147,7 @@ const cart = [
       { name: 'Высота', value: 12, units: 'мм', factor: 0 },
       { name: 'Шаг', value: 2.5, units: 'мм', factor: 0 },
     ],
-    totalqnt: 242,
+    stockQnt: 242,
     sellPrice: [
       { qnt: 1, unitPrice: 20 },
       { qnt: 10, unitPrice: 15 },

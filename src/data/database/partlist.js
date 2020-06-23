@@ -29,7 +29,7 @@ const project = {
           { id: 1, name: 'C-23', qnt: 230 },
           { id: 23, name: 'B-29', qnt: 12 },
         ],
-        totalqnt: 242,
+        stockQnt: 242,
         sellPrice: [
           { qnt: 1, unitPrice: 20 },
           { qnt: 10, unitPrice: 15 },
@@ -70,7 +70,7 @@ const project = {
           { id: 1, name: 'C-23', qnt: 230 },
           { id: 23, name: 'B-29', qnt: 12 },
         ],
-        totalqnt: 242,
+        stockQnt: 242,
         sellPrice: [
           { qnt: 1, unitPrice: 20 },
           { qnt: 10, unitPrice: 15 },
@@ -112,7 +112,7 @@ const project = {
           { id: 1, name: 'C-23', qnt: 230 },
           { id: 23, name: 'B-29', qnt: 12 },
         ],
-        totalqnt: 242,
+        stockQnt: 242,
         sellPrice: [
           { qnt: 1, unitPrice: 20 },
           { qnt: 10, unitPrice: 15 },
@@ -153,7 +153,7 @@ const project = {
           { id: 1, name: 'C-23', qnt: 230 },
           { id: 23, name: 'B-29', qnt: 12 },
         ],
-        totalqnt: 242,
+        stockQnt: 242,
         sellPrice: [
           { qnt: 1, unitPrice: 20 },
           { qnt: 10, unitPrice: 15 },
