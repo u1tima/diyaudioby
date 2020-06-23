@@ -1,9 +1,31 @@
-@import '../../node_modules/rsuite/dist/styles/rsuite-default.css';
+@import "../../node_modules/rsuite/dist/styles/rsuite-default.css";
 
-body{
+body {
   background-color: #e6e6e6;
 }
 
 .rs-input-group {
   display: flex;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr {
+  border-top: 1px solid #e6e6e6;
+}
+
+tr:last-child {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+th,
+td {
+  padding: 8px;
+}
+
+td {
+  text-align: center;
 }

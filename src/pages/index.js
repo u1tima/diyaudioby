@@ -9,6 +9,6 @@ export default () => (
     <Sidebar side="left">
       <Widget title='Рубрика'></Widget>
     </Sidebar>
-    <Content>123</Content>
+    <Content>Main page</Content>
   </Layout>
 )

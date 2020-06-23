@@ -20,21 +20,21 @@ const data = [
       { name: 'Высота', value: 12, units: 'мм', factor: 0 },
       { name: 'Шаг', value: 2.5, units: 'мм', factor: 0 },
     ],
-    storaqe: [
-      { id: 1, name: 'C-23', qnt: 230 },
-      { id: 23, name: 'B-29', qnt: 12 },
-    ],
+    // storaqe: [
+    //   { id: 1, name: 'C-23', qnt: 230 },
+    //   { id: 23, name: 'B-29', qnt: 12 },
+    // ],
     totalqnt: 242,
     sellPrice: [
       { qnt: 10, unitPrice: 10 },
       { qnt: 25, unitPrice: 8 },
       { qnt: 50, unitPrice: 5 },
     ],
-    buyPrice: 40,
-    priceStory: [
-      { date: '12-03-2007', qnt: 100, unitPrice: 1 },
-      { date: '12-03-2007', qnt: 100, unitPrice: 10 },
-    ],
+    // buyPrice: 40,
+    // priceStory: [
+    //   { date: '12-03-2007', qnt: 100, unitPrice: 1 },
+    //   { date: '12-03-2007', qnt: 100, unitPrice: 10 },
+    // ],
     minOrder: 10, //минимальное количество
   },
   {

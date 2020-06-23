@@ -1,59 +1,71 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import css from './State.module.css';
 import { Button, IconButton, Icon, InputNumber } from 'rsuite';
 
-const CompState = ({ comp, asmQnt }) => {
+const State = ({ view, comp, asmQnt }) => {
 
   const { minOrder, sellPrice } = comp;
 
-  const [state, setState] = useState({
-    qnt: 0,
-    price: 0,
-    total: 0,
-    cart: false
-  });
-
-  const testClick = () => {
-    const test = {...comp, ...state};
-    console.log(test)
+  const initialState = {
+    orderQnt: 0,
+    unitPrice: 0,
+    totalPrice: 0,
+    inCart: false,
   }
 
-  const getPrice = (qnt) => {
-    if (qnt <= 0) return 0;
-    let price = sellPrice[0].unitPrice;
+  const [state, setState] = useState(initialState);
+
+  useEffect(() => {
+    if (state.inCart) console.log({ ...comp, ...state })
+  }, [state.inCart]);
+
+  const onAddToCart = () => {
+    if (state.orderQnt > 0) {
+      const inCart = true;
+      setState(state => ({ ...state, inCart }));
+    }
+  }
+
+  const onRefreshCart = () => { console.log('refresh') };
+
+  const onDeleteFromCart = () => { setState(initialState) }
+
+  const getPrice = (orderQnt) => {
+    if (orderQnt <= 0) return 0;
+    let unitPrice = sellPrice[0].unitPrice;
     sellPrice.forEach(item => {
-      if (qnt >= item.qnt) price = item.unitPrice;
+      if (orderQnt >= item.qnt) unitPrice = item.unitPrice;
     });
-    return price;
+    return unitPrice;
   }
 
   const qntClick = (index) => {
-    const qnt = sellPrice[index].qnt;
-    const price = sellPrice[index].unitPrice;
-    const total = qnt * price;
-    setState({ qnt, price, total })
+    const orderQnt = sellPrice[index].qnt;
+    const unitPrice = sellPrice[index].unitPrice;
+    const totalPrice = orderQnt * unitPrice;
+    setState(state => ({ ...state, orderQnt, unitPrice, totalPrice }))
   }
 
   const asmQntClick = () => {
-    const qnt = asmQnt;
-    const price = getPrice(qnt);
-    const total = qnt * price;
-    setState({ qnt, price, total });
+    const orderQnt = asmQnt;
+    const unitPrice = getPrice(orderQnt);
+    const totalPrice = orderQnt * unitPrice;
+    setState(state => ({ ...state, orderQnt, unitPrice, totalPrice }))
   }
 
   const onChangeHandler = (value) => {
-    const qnt = (+value <= 0) ? 0 : +value
-    const price = getPrice(qnt);
-    const total = qnt * price;
-    setState({ qnt, price, total });
+    const orderQnt = (+value <= 0) ? 0 : +value
+    const unitPrice = getPrice(orderQnt);
+    const totalPrice = orderQnt * unitPrice;
+    setState(state => ({ ...state, orderQnt, unitPrice, totalPrice }));
   }
 
   const onBlurHandler = (event) => {
     const value = +event.target.value;
-    const qnt = Math.ceil(value / minOrder) * minOrder;
-    const price = getPrice(qnt);
-    const total = qnt * price;
-    setState({ qnt, price, total });
+    const orderQnt = Math.ceil(value / minOrder) * minOrder;
+    const unitPrice = getPrice(orderQnt);
+    const totalPrice = orderQnt * unitPrice;
+    setState(state => ({ ...state, orderQnt, unitPrice, totalPrice }));
   }
 
   const showAsmQnt = () => (
@@ -66,7 +78,6 @@ const CompState = ({ comp, asmQnt }) => {
 
   const showPrice = () => (
     <td className={css.price}>
-      {/* <td> */}
       {sellPrice.map((item, index) => (
         <div key={index} className={css.row}>
           <div className={css.item} onClick={() => qntClick(index)}>{`${item.qnt}+`}</div>
@@ -78,47 +89,81 @@ const CompState = ({ comp, asmQnt }) => {
 
   const showInput = () => (
     <td className={css.control}>
-      {/* <td> */}
       <InputNumber
         size='sm'
         step={minOrder}
-        value={state.qnt}
+        value={state.orderQnt}
         onChange={onChangeHandler}
         onBlur={onBlurHandler} />
     </td>
   )
 
+  const showUnitPrice = () => (
+    <td>
+      {state.unitPrice} p
+    </td>
+  )
+
   const showTotal = () => (
-    <td className={css.total}>{state.total} p</td>
-    // <td>{state.total} p</td>
+    <td>
+      {state.totalPrice} p
+    </td>
   );
 
   const showAddButton = () => (
-    // <td className={css.cart}>
-      <td>
-      <Button size='sm' appearance="primary">
+    <td>
+      <Button size='sm' appearance="primary" onClick={onAddToCart}>
         В корзину
       </Button>
     </td>
   )
 
-  const showCartButtons = () => (
-    <td className={css.cart}>      
-      <IconButton onClick={testClick} size='sm' color="green" icon={<Icon icon="refresh" />} />
-      <IconButton size='sm' color="red" icon={<Icon icon="close" />} />
+  const showRefreshButton = () => (
+    <td>
+      {/* <div className={css.buttons}> */}
+        <IconButton onClick={onRefreshCart} size='sm' color="green" icon={<Icon icon="refresh" />} />
+        <IconButton onClick={onDeleteFromCart} size='sm' color="red" icon={<Icon icon="close" />} />
+      {/* </div> */}
     </td>
   )
 
-  return (
+  const showCompView = () => (
     <>
-      {asmQnt ? showAsmQnt() : null}
       {showPrice()}
       {showInput()}
       {showTotal()}
-      {showAddButton()}
-      {/* {showCartButtons()} */}
+      {state.inCart ? showRefreshButton() : showAddButton()}
+    </>
+  )
+
+  const showPartView = () => (
+    <>
+      {showAsmQnt()}
+      {showPrice()}
+      {showInput()}
+      {showTotal()}
+      {state.inCart ? showRefreshButton() : showAddButton()}
+    </>
+  )
+
+  const showCartView = () => (
+    <>
+      {showPrice()}
+      {showInput()}
+      {showUnitPrice()}
+      {showTotal()}
+      {showRefreshButton()}
+    </>
+  )
+
+
+  return (
+    <>
+      {view === 'comp' ? showCompView() : null}
+      {view === 'part' ? showPartView() : null}
+      {view === 'cart' ? showCartView() : null}
     </>
   )
 }
 
-export default CompState;
+export default State;

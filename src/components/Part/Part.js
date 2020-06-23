@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import css from './Part.module.css';
+import React from 'react';
+// import css from './Part.module.css';
 import State from '../State/State';
 import { Icon } from 'rsuite';
 
 const Part = ({ part }) => {
 
   const { comp, asmQnt } = part;
+  const view = "part"
 
   const showPartName = () => (
     <td>
@@ -16,7 +17,7 @@ const Part = ({ part }) => {
 
   const showFullInfo = () => (
     <td>
-      <Icon icon="cog" size="lg"/>
+      <Icon icon="cog" size="lg" />
     </td>
   )
 
@@ -27,12 +28,12 @@ const Part = ({ part }) => {
   )
 
   return (
-    <>
+    <tr>
       {showPosition()}
       {showPartName()}
       {showFullInfo()}
-      <State comp={comp} asmQnt={asmQnt} />
-    </>
+      <State comp={comp} asmQnt={asmQnt} view={view} />
+    </tr>
   );
 }
 

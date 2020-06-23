@@ -5,9 +5,10 @@ import { Popover, Whisper } from 'rsuite';
 const Comp = ({ comp }) => {
 
   const { partNumber, manufacture, techData } = comp;
+  const view = 'comp';
 
   return (
-    <>
+    <tr>
       <td>
         <div>{partNumber}</div>
         <div>{manufacture.name}</div>
@@ -19,8 +20,8 @@ const Comp = ({ comp }) => {
         </td>
       ))}
 
-      <State comp={comp} />
-    </>
+      <State comp={comp} view={view}/>
+    </tr>
   );
 }
 
