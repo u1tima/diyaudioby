@@ -20,6 +20,7 @@ const reducer = (state = initialSstate, action) => {
     case "ADD_TO_CART":
       return {
         cart: state.cart.push(action.payload),
+        count: state.count + 10,
         ...state
       }
 

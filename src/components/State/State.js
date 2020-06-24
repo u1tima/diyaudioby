@@ -4,7 +4,7 @@ import { Button, IconButton, Icon, InputNumber } from 'rsuite';
 import { addToCart } from '../../store/store';
 import css from './State.module.css';
 
-const State = ({ view, comp, asmQnt, onAddToCart, count }) => {
+const State = ({ view, comp, asmQnt, onAddToCart }) => {
 
   const { minOrder, sellPrice } = comp;
 
@@ -17,17 +17,13 @@ const State = ({ view, comp, asmQnt, onAddToCart, count }) => {
 
   const [state, setState] = useState(initialState);
 
-  useEffect(() => {
-    if (state.inCart) console.log({ ...comp, ...state })
-  }, [state.inCart]);
-  
-
-  // const onAddToCart = (comp) => {
-  //   if (state.orderQnt > 0) {
-  //     const inCart = true;
-  //     setState(state => ({ ...state, inCart }));
-  //   }
-  // }
+  const btnAddToCartClick = () => {
+    if (state.orderQnt > 0) {
+      const inCart = true;
+      setState(state => ({ ...state, inCart }));
+      onAddToCart({ ...comp, ...state,  inCart});
+    }
+  }
 
   const onRefreshCart = () => { console.log('refresh') };
 
@@ -115,7 +111,7 @@ const State = ({ view, comp, asmQnt, onAddToCart, count }) => {
 
   const showAddButton = () => (
     <td>
-      <Button size='sm' appearance="primary" onClick={() => onAddToCart({...comp, ...state})}>
+      <Button size='sm' appearance="primary" onClick={btnAddToCartClick}>
         В корзину
       </Button>
     </td>
