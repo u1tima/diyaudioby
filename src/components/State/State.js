@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Button, IconButton, Icon, InputNumber } from 'rsuite';
-import { addToCart } from '../../store/store';
+import { addToCart, refreshCart, deleteFromCart } from '../../store/cart/actions';
 import css from './State.module.css';
 
-const State = ({ view, comp, asmQnt, onAddToCart }) => {
+const State = ({ view, comp, asmQnt, onAddToCart, onRefreshCart, onDeleteFromCart }) => {
 
   const { minOrder, sellPrice } = comp;
 
@@ -21,13 +21,18 @@ const State = ({ view, comp, asmQnt, onAddToCart }) => {
     if (state.orderQnt > 0) {
       const inCart = true;
       setState(state => ({ ...state, inCart }));
-      onAddToCart({ ...comp, ...state,  inCart});
+      onAddToCart({ ...comp, ...state, inCart });
     }
   }
 
-  const onRefreshCart = () => { console.log('refresh') };
+  const btnRefreshCart = () => {
+    onRefreshCart({ ...comp, ...state });
+  };
 
-  const onDeleteFromCart = () => { setState(initialState) }
+  const btnDeleteFromCart = () => {
+    onDeleteFromCart(comp);
+    setState(initialState);
+  }
 
   const getPrice = (orderQnt) => {
     if (orderQnt <= 0) return 0;
@@ -120,8 +125,8 @@ const State = ({ view, comp, asmQnt, onAddToCart }) => {
   const showRefreshButton = () => (
     <td>
       {/* <div className={css.buttons}> */}
-      <IconButton onClick={onRefreshCart} size='sm' color="green" icon={<Icon icon="refresh" />} />
-      <IconButton onClick={onDeleteFromCart} size='sm' color="red" icon={<Icon icon="close" />} />
+      <IconButton onClick={btnRefreshCart} size='sm' color="green" icon={<Icon icon="refresh" />} />
+      <IconButton onClick={btnDeleteFromCart} size='sm' color="red" icon={<Icon icon="close" />} />
       {/* </div> */}
     </td>
   )
@@ -165,12 +170,14 @@ const State = ({ view, comp, asmQnt, onAddToCart }) => {
   )
 }
 
-const mapStateToProps = state => console.log(state.count);
+// const mapStateToProps = state => console.log(state.count);
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAddToCart: comp => dispatch((addToCart(comp)))
+    onAddToCart: comp => dispatch(addToCart(comp)),
+    onRefreshCart: comp => dispatch(refreshCart(comp)),
+    onDeleteFromCart: comp => dispatch(deleteFromCart(comp)),
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(State);
+export default connect(null, mapDispatchToProps)(State);

@@ -1,17 +1,17 @@
 import React from 'react';
-import Wrapper from '../wrapper/wrapper';
-import Header from '../header/header';
-import Navbar from '../navbar/navbar';
-import Main from '../main/main';
-import Footer from '../footer/footer';
+import Wrapper from '../Wrapper/Wrapper';
+import Header from '../Header/Header';
+import Navbar from '../Navbar/Navbar';
+import Main from '../Main/Main';
+import Footer from '../Footer/Footer';
 
-const Layout = (props) => {
+const Layout = ({ children }) => {
   return (
     <Wrapper>
       <Header />
       <Navbar />
       <Main>
-        {props.children}
+        {children}
       </Main>
       <Footer />
     </Wrapper>

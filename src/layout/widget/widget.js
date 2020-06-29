@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './widget.module.css';
+import css from './Widget.module.css';
 
 const Widget = (props) => {
 

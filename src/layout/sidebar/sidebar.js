@@ -1,13 +1,13 @@
 import React from 'react';
-import css from './sidebar.module.css';
+import css from './Sidebar.module.css';
 
-const Sidebar = (props) => {  
+const Sidebar = ({side, children}) => {  
 
-  const cls = `${css.sidebar} ${css[props.side]}`;
+  const cls = `${css.sidebar} ${css[side]}`;
 
   return (
     <div className={cls}>
-      {props.children}
+      {children}
     </div>
   );
 }

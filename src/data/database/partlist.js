@@ -4,7 +4,7 @@ const project = {
     { type: 'caption', name: 'Конденсаторы SMD 0805 Yageo CC0805 (кратно 10 шт)' },
     {
       type: 'part', position: 'OUT: C33, C34', asmQnt: 2, comp: {
-        id: 1,
+        id: 100,
         name: 'Panasonic FC 100uF x 16V',
         partNumber: 'EEUFC1C101',
         body: '',
@@ -45,7 +45,7 @@ const project = {
     },
     {
       type: 'part', position: 'OUT: C22...C34', asmQnt: 12, comp: {
-        id: 1,
+        id: 200,
         name: 'Panasonic FC 220uF x 16V',
         partNumber: 'EEUFC1C101',
         body: 'TH',
@@ -87,7 +87,7 @@ const project = {
     { type: 'caption', name: 'Резисторы SMD 1206 Yageo (кратно 10 шт)' },
     {
       type: 'part', position: 'R22, R23', asmQnt: 22, comp: {
-        id: 1,
+        id: 300,
         name: 'RES SMD 22k Ohm 1% 1/4W 1206',
         partNumber: 'RC1206FR-0722KL',
         body: '',
@@ -128,7 +128,7 @@ const project = {
     },
     {
       type: 'part', position: 'R17, R18 - R20', asmQnt: 3, comp: {
-        id: 1,
+        id: 400,
         name: 'RES SMD 100k Ohm 1% 1/4W 1206',
         partNumber: 'RC1206FR-07100KL',
         body: 'TH',

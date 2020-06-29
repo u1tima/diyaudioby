@@ -1,12 +1,12 @@
 import React from 'react';
-import css from './wrapper.module.css';
+import css from './Wrapper.module.css';
 import { Provider } from 'react-redux';
-import createStore from '../../store/store';
+import { createStore } from 'redux';
+import rootReducer from '../../store/rootReducer';
+
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 const Wrapper = ({ children }) => {
-
-  const store = createStore();
-
   return (
     <Provider store={store} >
       <div className={css.wrapper}>
@@ -15,6 +15,5 @@ const Wrapper = ({ children }) => {
     </Provider>
   )
 }
-
 
 export default Wrapper;

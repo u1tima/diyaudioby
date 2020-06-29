@@ -1,11 +1,10 @@
 import React from 'react';
-import css from './navbar.module.css';
+import css from './Navbar.module.css';
 import { Link } from 'gatsby';
 
 const Navbar = () => {
 
   const menu = [
-
     { name: 'Test', pageLink: '/test' },
   ]
 

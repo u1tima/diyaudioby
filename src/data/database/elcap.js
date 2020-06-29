@@ -1,6 +1,6 @@
 const data = [
   {
-    id: 1,
+    id: 10,
     name: 'Panasonic FC 100uF x 16V',
     partNumber: 'EEUFC1C101',
     body: '',
@@ -38,7 +38,7 @@ const data = [
     minOrder: 10, //минимальное количество
   },
   {
-    id: 1,
+    id: 20,
     name: 'Panasonic FC 220uF x 50V',
     partNumber: 'EEUFC1H221',
     body: '',
@@ -76,7 +76,7 @@ const data = [
     minOrder: 10,
   },
   {
-    id: 1,
+    id: 30,
     name: 'Panasonic FC 470uF x 35V',
     partNumber: 'EEUFC1V471B',
     body: '',
@@ -114,7 +114,7 @@ const data = [
     minOrder: 10,
   },
   {
-    id: 1,
+    id: 40,
     name: 'Panasonic FC 1000uF x 50V',
     partNumber: 'EEUFC1H102',
     body: '',
