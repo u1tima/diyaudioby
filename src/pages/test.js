@@ -6,7 +6,7 @@ import Content from '../layout/content/content';
 import Comp from '../components/Comp/Comp';
 import Part from '../components/Part/Part';
 import Caption from '../components/Caption/Caption';
-import CartItem from '../components/CartItem/CartItem';
+import Product from '../components/Product/Product';
 
 import complist from '../data/database/elcap';
 import project from '../data/database/partlist';
@@ -33,7 +33,7 @@ export default () => (
             <th style={{ "width": "100px" }}>Цена</th>
             <th style={{ "width": "85px" }}>Заказ</th>
             <th style={{ "width": "60px" }}>Сумма</th>
-            <th style={{ "width": "100px" }}></th>
+            <th style={{ "width": "105px" }}></th>
           </tr>
         </thead>
 
@@ -58,7 +58,7 @@ export default () => (
             <th style={{ "width": "100px" }}>Цена</th>
             <th style={{ "width": "85px" }}>Заказ</th>
             <th style={{ "width": "60px" }}>Сумма</th>
-            <th style={{ "width": "100px" }}></th>
+            <th style={{ "width": "105px" }}></th>
           </tr>
         </thead>
 
@@ -75,7 +75,7 @@ export default () => (
 
       <h4>Cart</h4>
 
-      <table className="table">
+      <table>
 
         <thead>
           <tr>
@@ -85,13 +85,13 @@ export default () => (
             <th style={{ "width": "85px" }}>Заказ</th>
             <th style={{ "width": "100px" }}>Unit price</th>
             <th style={{ "width": "100px" }}>Сумма</th>
-            <th></th>
+            <th style={{ "width": "105px" }}></th>
           </tr>
         </thead>
 
         <tbody>
 
-          {cart.map((item, index) => <CartItem key={index} comp={item} view="cart" />)}
+          {cart.map((item, index) => <Product key={index} comp={item} view="cart" />)}
 
         </tbody>
       </table>

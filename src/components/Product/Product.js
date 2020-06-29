@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import css from './CartItem.module.css';
 import State from '../State/State';
 import { Icon } from 'rsuite';
 
-const CartItem = ({ comp }) => {
+const Product = ({ comp }) => {
 
   const { qnt, price, total, minOrder, sellPrice } = comp;
   const view = "cart"
@@ -30,4 +29,4 @@ const CartItem = ({ comp }) => {
   );
 }
 
-export default CartItem;
+export default Product;

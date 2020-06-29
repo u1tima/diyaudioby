@@ -124,10 +124,10 @@ const State = ({ view, comp, asmQnt, onAddToCart, onRefreshCart, onDeleteFromCar
 
   const showRefreshButton = () => (
     <td>
-      {/* <div className={css.buttons}> */}
+      <div className={css.buttons}>
       <IconButton onClick={btnRefreshCart} size='sm' color="green" icon={<Icon icon="refresh" />} />
       <IconButton onClick={btnDeleteFromCart} size='sm' color="red" icon={<Icon icon="close" />} />
-      {/* </div> */}
+      </div>
     </td>
   )
 
