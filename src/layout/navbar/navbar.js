@@ -1,11 +1,13 @@
 import React from 'react';
-import css from './Navbar.module.css';
+import { connect } from 'react-redux';
 import { Link } from 'gatsby';
+import css from './Navbar.module.css';
 
-const Navbar = () => {
+const Navbar = ({ cart }) => {
 
   const menu = [
-    { name: 'Test', pageLink: '/test' },
+    { name: 'Partlist', pageLink: '/partlist' },
+    { name: "Complist", pageLink: '/complist' }
   ]
 
   const menuList = menu.map((item, index) => {
@@ -25,11 +27,13 @@ const Navbar = () => {
       </div>
 
       <Link className={css.menuItem} to='/store/cart'>
-        Корзина
+        Корзина ({cart.length})
       </Link>
 
     </nav>
   );
 }
 
-export default Navbar;
+const mapStateToProps = cart => cart
+
+export default connect(mapStateToProps)(Navbar);

@@ -26,9 +26,9 @@ const data = [
     // ],
     stockQnt: 242,
     sellPrice: [
-      { qnt: 10, unitPrice: 10 },
-      { qnt: 25, unitPrice: 8 },
-      { qnt: 50, unitPrice: 5 },
+      { qnt: 1, unitPrice: 1 },
+      { qnt: 2, unitPrice: 5 },
+      { qnt: 3, unitPrice: 10 },
     ],
     // buyPrice: 40,
     // priceStory: [
@@ -64,9 +64,9 @@ const data = [
     // ],
     stockQnt: 242,
     sellPrice: [
-      { qnt: 10, unitPrice: 10 },
-      { qnt: 25, unitPrice: 8 },
-      { qnt: 50, unitPrice: 5 },
+      { qnt: 4, unitPrice: 10 },
+      { qnt: 5, unitPrice: 8 },
+      { qnt: 6, unitPrice: 5 },
     ],
     // buyPrice: 40,
     // priceStory: [
@@ -102,9 +102,9 @@ const data = [
     // ],
     stockQnt: 242,
     sellPrice: [
-      { qnt: 10, unitPrice: 10 },
-      { qnt: 25, unitPrice: 8 },
-      { qnt: 50, unitPrice: 5 },
+      { qnt: 7, unitPrice: 10 },
+      { qnt: 8, unitPrice: 8 },
+      { qnt: 9, unitPrice: 5 },
     ],
     // buyPrice: 40,
     // priceStory: [
@@ -141,8 +141,8 @@ const data = [
     stockQnt: 242,
     sellPrice: [
       { qnt: 10, unitPrice: 10 },
-      { qnt: 25, unitPrice: 8 },
-      { qnt: 50, unitPrice: 5 },
+      { qnt: 11, unitPrice: 8 },
+      { qnt: 12, unitPrice: 5 },
     ],
     // buyPrice: 40,
     // priceStory: [
@@ -152,7 +152,7 @@ const data = [
     minOrder: 10,
   },
   {
-    id: 1,
+    id: 50,
     name: 'Panasonic FC 4700uF x 16V',
     partNumber: 'EEUFC1C472',
     body: '',
@@ -178,9 +178,9 @@ const data = [
     // ],
     stockQnt: 242,
     sellPrice: [
-      { qnt: 10, unitPrice: 10 },
-      { qnt: 25, unitPrice: 8 },
-      { qnt: 50, unitPrice: 5 },
+      { qnt: 13, unitPrice: 10 },
+      { qnt: 14, unitPrice: 8 },
+      { qnt: 15, unitPrice: 5 },
     ],
     // buyPrice: 40,
     // priceStory: [

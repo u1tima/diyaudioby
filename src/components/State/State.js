@@ -4,15 +4,15 @@ import { Button, IconButton, Icon, InputNumber } from 'rsuite';
 import { addToCart, refreshCart, deleteFromCart } from '../../store/cart/actions';
 import css from './State.module.css';
 
-const State = ({ view, comp, asmQnt, onAddToCart, onRefreshCart, onDeleteFromCart }) => {
+const State = ({ comp, onAddToCart, onRefreshCart, onDeleteFromCart }) => {
 
-  const { minOrder, sellPrice } = comp;
+  const { minOrder, sellPrice, orderQnt, unitPrice, totalPrice, inCart } = comp;
 
   const initialState = {
-    orderQnt: 0,
-    unitPrice: 0,
-    totalPrice: 0,
-    inCart: false,
+    orderQnt: orderQnt || 0,
+    unitPrice: unitPrice || 0,
+    totalPrice: totalPrice || 0,
+    inCart: inCart || false,
   }
 
   const [state, setState] = useState(initialState);
@@ -26,12 +26,14 @@ const State = ({ view, comp, asmQnt, onAddToCart, onRefreshCart, onDeleteFromCar
   }
 
   const btnRefreshCart = () => {
-    onRefreshCart({ ...comp, ...state });
+    if (state.orderQnt > 0)
+      onRefreshCart({ ...comp, ...state });
   };
 
   const btnDeleteFromCart = () => {
-    onDeleteFromCart(comp);
-    setState(initialState);
+    const inCart = false;
+    setState(state => ({ ...state, inCart }));
+    onDeleteFromCart({ ...comp, inCart })
   }
 
   const getPrice = (orderQnt) => {
@@ -50,13 +52,6 @@ const State = ({ view, comp, asmQnt, onAddToCart, onRefreshCart, onDeleteFromCar
     setState(state => ({ ...state, orderQnt, unitPrice, totalPrice }))
   }
 
-  const asmQntClick = () => {
-    const orderQnt = asmQnt;
-    const unitPrice = getPrice(orderQnt);
-    const totalPrice = orderQnt * unitPrice;
-    setState(state => ({ ...state, orderQnt, unitPrice, totalPrice }))
-  }
-
   const onChangeHandler = (value) => {
     const orderQnt = (+value <= 0) ? 0 : +value
     const unitPrice = getPrice(orderQnt);
@@ -71,14 +66,6 @@ const State = ({ view, comp, asmQnt, onAddToCart, onRefreshCart, onDeleteFromCar
     const totalPrice = orderQnt * unitPrice;
     setState(state => ({ ...state, orderQnt, unitPrice, totalPrice }));
   }
-
-  const showAsmQnt = () => (
-    <td onClick={asmQntClick}>
-      <div className={css.asmQnt}>
-        {asmQnt}
-      </div>
-    </td>
-  )
 
   const showPrice = () => (
     <td className={css.price}>
@@ -102,12 +89,6 @@ const State = ({ view, comp, asmQnt, onAddToCart, onRefreshCart, onDeleteFromCar
     </td>
   )
 
-  const showUnitPrice = () => (
-    <td>
-      {state.unitPrice} p
-    </td>
-  )
-
   const showTotal = () => (
     <td>
       {state.totalPrice} p
@@ -125,8 +106,8 @@ const State = ({ view, comp, asmQnt, onAddToCart, onRefreshCart, onDeleteFromCar
   const showRefreshButton = () => (
     <td>
       <div className={css.buttons}>
-      <IconButton onClick={btnRefreshCart} size='sm' color="green" icon={<Icon icon="refresh" />} />
-      <IconButton onClick={btnDeleteFromCart} size='sm' color="red" icon={<Icon icon="close" />} />
+        <IconButton onClick={btnRefreshCart} size='sm' color="green" icon={<Icon icon="refresh" />} />
+        <IconButton onClick={btnDeleteFromCart} size='sm' color="red" icon={<Icon icon="close" />} />
       </div>
     </td>
   )
@@ -140,37 +121,13 @@ const State = ({ view, comp, asmQnt, onAddToCart, onRefreshCart, onDeleteFromCar
     </>
   )
 
-  const showPartView = () => (
-    <>
-      {showAsmQnt()}
-      {showPrice()}
-      {showInput()}
-      {showTotal()}
-      {state.inCart ? showRefreshButton() : showAddButton()}
-    </>
-  )
-
-  const showCartView = () => (
-    <>
-      {showPrice()}
-      {showInput()}
-      {showUnitPrice()}
-      {showTotal()}
-      {showRefreshButton()}
-    </>
-  )
-
 
   return (
-    <>
-      {view === 'comp' ? showCompView() : null}
-      {view === 'part' ? showPartView() : null}
-      {view === 'cart' ? showCartView() : null}
-    </>
+    showCompView()
   )
 }
 
-// const mapStateToProps = state => console.log(state.count);
+// const mapStateToProps = state => state
 
 const mapDispatchToProps = dispatch => {
   return {
