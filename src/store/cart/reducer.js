@@ -1,10 +1,10 @@
 import { ADD_TO_CART, REFRESH_CART, DELETE_FROM_CART } from "./actionTypes";
 
-const initialState = (typeof localStorage != "undefined")
-  ? JSON.parse(localStorage.getItem("dab_cart"))
-  : [];
+// const initialState = (typeof localStorage != "undefined")
+  // ? JSON.parse(localStorage.getItem("dab_cart"))
+//   : [];
 
-export const cart = (state = initialState, action) => {
+export const cart = (state = [], action) => {
 
   const { type, payload } = action;
 
@@ -28,7 +28,7 @@ export const cart = (state = initialState, action) => {
       break;
   }
 
-  if (typeof localStorage != "undefined") localStorage.setItem('dab_cart', JSON.stringify(cart));
+  // if (typeof localStorage != "undefined") localStorage.setItem('dab_cart', JSON.stringify(cart));
 
   return cart;
 
