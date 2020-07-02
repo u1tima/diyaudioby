@@ -6,10 +6,11 @@ import css from './Comp.module.css';
 
 const Comp = ({ cart, comp, onAddToCart, onRefreshCart, onDeleteFromCart }) => {
 
-  const { minOrder, sellPrice } = comp;
-  const { partNumber, manufacture, techData } = comp;
+  const { minOrder, sellPrice, partNumber, manufacture, techData, stockQnt } = comp;
 
   const product = cart.find(product => product.id === comp.id);
+
+  const isBtnAddToCartActive = stockQnt !== 0;
 
   const initialState = {
     orderQnt: product ? product.orderQnt : 0,
@@ -75,7 +76,7 @@ const Comp = ({ cart, comp, onAddToCart, onRefreshCart, onDeleteFromCart }) => {
 
   const showAddButton = () => (
     <td>
-      <Button size='sm' appearance="primary" onClick={btnAddToCartClick}>
+      <Button size='sm' appearance="primary" disabled={isBtnAddToCartActive} onClick={btnAddToCartClick}>
         В корзину
       </Button>
     </td>
