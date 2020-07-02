@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Icon, IconButton, InputNumber } from 'rsuite';
-import { deleteFromCart } from '../../store/cart/actions';
+import { refreshCart, deleteFromCart } from '../../store/cart/actions';
 import css from './Product.module.css';
 
-const Product = ({ comp, onDeleteFromCart }) => {
+const Product = ({ comp, onDeleteFromCart, onRefreshCart }) => {
 
   const { minOrder, sellPrice, orderQnt, unitPrice, totalPrice } = comp;
 
@@ -30,6 +30,7 @@ const Product = ({ comp, onDeleteFromCart }) => {
     const unitPrice = sellPrice[index].unitPrice;
     const totalPrice = orderQnt * unitPrice;
     setState(state => ({ ...state, orderQnt, unitPrice, totalPrice }))
+    onRefreshCart({ ...comp, orderQnt, unitPrice, totalPrice });
   }
 
   const onChangeHandler = (value) => {
@@ -37,6 +38,7 @@ const Product = ({ comp, onDeleteFromCart }) => {
     const unitPrice = getPrice(orderQnt);
     const totalPrice = orderQnt * unitPrice;
     setState(state => ({ ...state, orderQnt, unitPrice, totalPrice }));
+    onRefreshCart({ ...comp, orderQnt, unitPrice, totalPrice });
   }
 
   const onBlurHandler = (event) => {
@@ -45,6 +47,7 @@ const Product = ({ comp, onDeleteFromCart }) => {
     const unitPrice = getPrice(orderQnt);
     const totalPrice = orderQnt * unitPrice;
     setState(state => ({ ...state, orderQnt, unitPrice, totalPrice }));
+    onRefreshCart({ ...comp, orderQnt, unitPrice, totalPrice });
   }
 
   return (
@@ -56,9 +59,7 @@ const Product = ({ comp, onDeleteFromCart }) => {
         <div>{comp.manufacture.name}</div>
       </td>
 
-      <td>
-        <Icon icon="cog" size="lg" />
-      </td>
+      <td><Icon icon="cog" size="lg" /></td>
 
       <td className={css.price}>
         {sellPrice.map((item, index) => (
@@ -78,13 +79,8 @@ const Product = ({ comp, onDeleteFromCart }) => {
           onBlur={onBlurHandler} />
       </td>
 
-      <td>
-        {state.unitPrice} p
-      </td>
-
-      <td>
-        {state.totalPrice} p
-      </td>
+      <td>{state.unitPrice} p</td>
+      <td>{state.totalPrice} p</td>
 
       <td>
         <IconButton onClick={() => onDeleteFromCart(comp)} size='sm' color="red" icon={<Icon icon="close" />} />
@@ -96,6 +92,7 @@ const Product = ({ comp, onDeleteFromCart }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    onRefreshCart: comp => dispatch(refreshCart(comp)),
     onDeleteFromCart: comp => dispatch(deleteFromCart(comp)),
   }
 }
