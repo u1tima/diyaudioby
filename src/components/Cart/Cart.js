@@ -4,6 +4,8 @@ import Product from '../Product/Product';
 
 const Cart = ({ cart }) => {
 
+  const total = cart.reduce((acc, val) => acc + val.totalPrice, 0);
+
   return (
     <table>
 
@@ -22,6 +24,16 @@ const Cart = ({ cart }) => {
       <tbody>
 
         {cart.map(item => <Product key={item.id} comp={item} />)}
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Итого</td>
+          <td>{total} руб</td>
+          <td></td>
+        </tr>
 
       </tbody>
     </table>
