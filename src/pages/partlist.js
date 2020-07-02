@@ -10,8 +10,6 @@ export default () => (
     <Sidebar side='left'></Sidebar>
     <Content>
 
-      <h4>Part List</h4>
-
       <PartList project={project}/>      
 
     </Content>

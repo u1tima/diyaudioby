@@ -1,5 +1,6 @@
 const project = {
   name: 'PSL-3604',
+  
   partlist: [
     { type: 'caption', name: 'Конденсаторы SMD 0805 Yageo CC0805 (кратно 10 шт)' },
     {

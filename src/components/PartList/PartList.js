@@ -1,29 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Part from '../Part/Part';
 import Caption from '../Caption/Caption';
 
-const PartList = ({ cart, project }) => {
+const PartList = ({ project }) => {
 
   const { partlist } = project;
-
-  //   switch (part.type) {
-  //     case "caption":
-  //       break;
-
-  //     case "part":
-  //       const product = cart.find(item => item.id === part.comp.id);
-  //       if (product) {
-  //         console.log(part)
-  //         part.comp = { ...product };
-  //         part = { ...part }
-  //       }
-
-  //     default:
-  //       break;
-  //   }
-  //   return part;
-  // });
 
   return (
     <table>
@@ -54,10 +35,4 @@ const PartList = ({ cart, project }) => {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    cart: state.cart,
-  }
-}
-
-export default connect(mapStateToProps)(PartList);
+export default PartList;
