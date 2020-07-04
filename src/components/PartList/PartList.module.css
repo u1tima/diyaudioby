@@ -1,3 +1,16 @@
+.info {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.projectImage {
+  width: 200px;
+}
+
+.projectData {
+  padding: 0 20px;
+}
+
 .price .row {
   display: flex;
   justify-content: space-between;

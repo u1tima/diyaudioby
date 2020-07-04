@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Icon, InputNumber, Button, IconButton } from 'rsuite';
+import { Icon, InputNumber, Button, IconButton, Notification } from 'rsuite';
 import { addToCart, refreshCart, deleteFromCart } from '../../store/cart/actions';
 import css from './Part.module.css';
 
@@ -23,8 +23,14 @@ const Part = ({ cart, part, onAddToCart, onRefreshCart, onDeleteFromCart }) => {
   const btnAddToCartClick = () => {
     if (state.orderQnt > 0) {
       const inCart = true;
-      setState(state => ({ ...state, inCart }));
-      onAddToCart({ ...comp, ...state, inCart });
+      // setTimeout(() => {
+        setState(state => ({ ...state, inCart }));
+        onAddToCart({ ...comp, ...state, inCart });
+        // Notification.success({
+        //   title: "success",
+        //   description: 'sdfsfsf'
+        // })
+      // }, 300);
     }
   }
 
