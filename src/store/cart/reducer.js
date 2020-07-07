@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REFRESH_CART, DELETE_FROM_CART } from "./actionTypes";
+import { ADD_TO_CART, REFRESH_CART, REMOVE_FROM_CART } from "./actionTypes";
 
 const isBrowser = typeof window !== `undefined`;
 
@@ -21,7 +21,7 @@ export const cart = (state = initialState, action) => {
       cart = state.map(comp => comp.id === payload.id ? payload : comp);
       break;
 
-    case DELETE_FROM_CART:
+    case REMOVE_FROM_CART:
       cart = state.filter(comp => comp.id !== payload.id);
       break;
 

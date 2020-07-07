@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REFRESH_CART, DELETE_FROM_CART } from './actionTypes';
+import { ADD_TO_CART, REFRESH_CART, REMOVE_FROM_CART } from './actionTypes';
 
 export const addToCart = comp => {
   return {
@@ -14,9 +14,9 @@ export const refreshCart = comp => {
   }
 }
 
-export const deleteFromCart = comp => {
+export const removeFromCart = comp => {
   return {
-    type: DELETE_FROM_CART,
+    type: REMOVE_FROM_CART,
     payload: comp,
   }
 }
