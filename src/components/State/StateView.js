@@ -52,15 +52,18 @@ export const OrderInput = ({ step, value, onChange, onBlur }) => (
       step={step}
       value={value}
       onChange={(e) => onChange(e)}
-      onBlur={(e) => onBlur(e)} />
+      onBlur={(e) => onBlur(e)}
+    />
   </td>
 )
+
+export const UnitPrice = ({ price }) => <td>{price} p</td>
 
 export const TotalPrice = ({ total }) => <td>{total} p</td>
 
 export const ButtonAddToCart = ({ isActive, onAdd }) => (
   <td>
-    <Button size='sm' appearance="primary" disabled={isActive} onClick={onAdd}>
+    <Button size='sm' appearance="primary" disabled={!isActive} onClick={onAdd}>
       В корзину
       </Button>
   </td>

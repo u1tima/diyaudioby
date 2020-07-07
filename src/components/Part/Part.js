@@ -80,7 +80,10 @@ const Part = ({ part, cart, onAddToCart, onRefreshCart, onRemoveFromCart }) => {
 
       <Info />
 
-      <AsmQuantity qnt={asmQnt} onAsmQntClick={onAsmQntClick} />
+      <AsmQuantity
+        qnt={asmQnt}
+        onAsmQntClick={onAsmQntClick}
+      />
 
       <PriceData
         data={sellPrice}
@@ -102,7 +105,7 @@ const Part = ({ part, cart, onAddToCart, onRefreshCart, onRemoveFromCart }) => {
           onRemove={onRemoveFromCartHandler}
         />
         : <ButtonAddToCart
-          isActive={stockQnt !== 0}
+          isActive={stockQnt > 0}
           onAdd={onAddToCartHandler}
         />}
 

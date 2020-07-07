@@ -24,7 +24,7 @@ const data = [
     //   { id: 1, name: 'C-23', qnt: 230 },
     //   { id: 23, name: 'B-29', qnt: 12 },
     // ],
-    stockQnt: 0,
+    stockQnt: 100,
     sellPrice: [
       { qnt: 1, unitPrice: 1 },
       { qnt: 2, unitPrice: 5 },
@@ -62,7 +62,7 @@ const data = [
     //   { id: 1, name: 'C-23', qnt: 230 },
     //   { id: 23, name: 'B-29', qnt: 12 },
     // ],
-    stockQnt: 242,
+    stockQnt: 100,
     sellPrice: [
       { qnt: 4, unitPrice: 10 },
       { qnt: 5, unitPrice: 8 },
@@ -138,7 +138,7 @@ const data = [
     //   { id: 1, name: 'C-23', qnt: 230 },
     //   { id: 23, name: 'B-29', qnt: 12 },
     // ],
-    stockQnt: 242,
+    stockQnt: 1231213,
     sellPrice: [
       { qnt: 10, unitPrice: 10 },
       { qnt: 11, unitPrice: 8 },
@@ -176,7 +176,7 @@ const data = [
     //   { id: 1, name: 'C-23', qnt: 230 },
     //   { id: 23, name: 'B-29', qnt: 12 },
     // ],
-    stockQnt: 0,
+    stockQnt: 234,
     sellPrice: [
       { qnt: 13, unitPrice: 10 },
       { qnt: 14, unitPrice: 8 },
