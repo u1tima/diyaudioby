@@ -1,79 +1,61 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Icon, InputNumber, Button, IconButton, Notification } from 'rsuite';
-import { addToCart, refreshCart, deleteFromCart } from '../../store/cart/actions';
-import css from './Part.module.css';
+import {
+  PartPosition,
+  PartName,
+  Info,
+  AsmQuantity,
+  PriceData,
+  OrderInput,
+  TotalPrice,
+  ButtonAddToCart,
+  ButtonsChangeCart,
+} from '../State/StateView.js'
+import { zeroState, getState, getPrice } from '../State/StateActions';
+import { addToCart, refreshCart, removeFromCart } from '../../store/cart/actions';
 
-const Part = ({ cart, part, onAddToCart, onRefreshCart, onDeleteFromCart }) => {
+const Part = ({ part, cart, onAddToCart, onRefreshCart, onRemoveFromCart }) => {
 
-  const { comp, asmQnt } = part;
-  const { minOrder, sellPrice } = comp;
-
-  const product = cart.find(product => product.id === comp.id);
-
-  const initialState = {
-    orderQnt: product ? product.orderQnt : 0,
-    unitPrice: product ? product.unitPrice : 0,
-    totalPrice: product ? product.totalPrice : 0,
-    inCart: !!product,
-  }
-
+  const { position, asmQnt, comp } = part;
+  const { minOrder, sellPrice, name, manufacture, stockQnt } = comp;
+  const initialState = getState(cart, comp);
   const [state, setState] = useState(initialState);
 
-  const btnAddToCartClick = () => {
+  const onAddToCartHandler = () => {
     if (state.orderQnt > 0) {
       const inCart = true;
-      // setTimeout(() => {
-        setState(state => ({ ...state, inCart }));
-        onAddToCart({ ...comp, ...state, inCart });
-        // Notification.success({
-        //   title: "success",
-        //   description: 'sdfsfsf'
-        // })
-      // }, 300);
+      setState(state => ({ ...state, inCart }));
+      onAddToCart({ ...comp, ...state, inCart });
     }
   }
 
-  const btnRefreshCart = () => {
+  const onRefreshCartHandler = () => {
     if (state.orderQnt > 0)
       onRefreshCart({ ...comp, ...state });
   };
 
-  const btnDeleteFromCart = () => {
-    const orderQnt = 0;
-    const unitPrice = 0;
-    const totalPrice = 0;
-    const inCart = false;
-    setState({ orderQnt, unitPrice, totalPrice, inCart });
-    onDeleteFromCart(comp);
+  const onRemoveFromCartHandler = () => {
+    setState(zeroState);
+    onRemoveFromCart(comp);
   }
 
-  const getPrice = (orderQnt) => {
-    if (orderQnt <= 0) return 0;
-    let unitPrice = sellPrice[0].unitPrice;
-    sellPrice.forEach(item => {
-      if (orderQnt >= item.qnt) unitPrice = item.unitPrice;
-    });
-    return unitPrice;
-  }
-
-  const qntClick = (index) => {
+  const onQntClick = index => {
     const orderQnt = sellPrice[index].qnt;
     const unitPrice = sellPrice[index].unitPrice;
     const totalPrice = orderQnt * unitPrice;
     setState(state => ({ ...state, orderQnt, unitPrice, totalPrice }))
   }
 
-  const asmQntClick = () => {
-    const orderQnt = asmQnt;
-    const unitPrice = getPrice(orderQnt);
+  const onAsmQntClick = qnt => {
+    const orderQnt = qnt;
+    const unitPrice = getPrice(orderQnt, sellPrice);
     const totalPrice = orderQnt * unitPrice;
     setState(state => ({ ...state, orderQnt, unitPrice, totalPrice }))
   }
 
   const onChangeHandler = (value) => {
     const orderQnt = (+value <= 0) ? 0 : +value
-    const unitPrice = getPrice(orderQnt);
+    const unitPrice = getPrice(orderQnt, sellPrice);
     const totalPrice = orderQnt * unitPrice;
     setState(state => ({ ...state, orderQnt, unitPrice, totalPrice }));
   }
@@ -81,72 +63,48 @@ const Part = ({ cart, part, onAddToCart, onRefreshCart, onDeleteFromCart }) => {
   const onBlurHandler = (event) => {
     const value = +event.target.value;
     const orderQnt = Math.ceil(value / minOrder) * minOrder;
-    const unitPrice = getPrice(orderQnt);
+    const unitPrice = getPrice(orderQnt, sellPrice);
     const totalPrice = orderQnt * unitPrice;
     setState(state => ({ ...state, orderQnt, unitPrice, totalPrice }));
   }
 
-  const showAddButton = () => (
-    <td>
-      <Button size='sm' appearance="primary" onClick={btnAddToCartClick}>
-        В корзину
-      </Button>
-    </td>
-  )
-
-  const showRefreshButton = () => (
-    <td>
-      <div className={css.buttons}>
-        <IconButton onClick={btnRefreshCart} size='sm' color="green" icon={<Icon icon="refresh" />} />
-        <IconButton onClick={btnDeleteFromCart} size='sm' color="red" icon={<Icon icon="close" />} />
-      </div>
-    </td>
-  )
-
   return (
     <tr>
-      <td>
-        {part.position}
-      </td>
 
-      <td>
-        <div>{comp.name}</div>
-        <div>{comp.manufacture.name}</div>
-      </td>
+      <PartPosition pos={position} />
 
-      <td>
-        <Icon icon="cog" size="lg" />
-      </td>
+      <PartName
+        name={name}
+        manufacture={manufacture}
+      />
 
-      <td>
-        <div className={css.asmQnt} onClick={asmQntClick}>
-          {asmQnt}
-        </div>
-      </td>
+      <Info />
 
-      <td className={css.price}>
-        {sellPrice.map((item, index) => (
-          <div key={index} className={css.row}>
-            <div className={css.item} onClick={() => qntClick(index)}>{`${item.qnt}+`}</div>
-            <div>{`${item.unitPrice.toFixed(2)} р`}</div>
-          </div>
-        ))}
-      </td>
+      <AsmQuantity qnt={asmQnt} onAsmQntClick={onAsmQntClick} />
 
-      <td className={css.control}>
-        <InputNumber
-          size='sm'
-          step={minOrder}
-          value={state.orderQnt}
-          onChange={onChangeHandler}
-          onBlur={onBlurHandler} />
-      </td>
+      <PriceData
+        data={sellPrice}
+        onQntClick={onQntClick}
+      />
 
-      <td>
-        {state.totalPrice} p
-      </td>
+      <OrderInput
+        step={minOrder}
+        value={state.orderQnt}
+        onChange={onChangeHandler}
+        onBlur={onBlurHandler}
+      />
 
-      {state.inCart ? showRefreshButton() : showAddButton()}
+      <TotalPrice total={state.totalPrice} />
+
+      {state.inCart
+        ? <ButtonsChangeCart
+          onRefresh={onRefreshCartHandler}
+          onRemove={onRemoveFromCartHandler}
+        />
+        : <ButtonAddToCart
+          isActive={stockQnt !== 0}
+          onAdd={onAddToCartHandler}
+        />}
 
     </tr>
   );
@@ -162,7 +120,7 @@ const mapDispatchToProps = dispatch => {
   return {
     onAddToCart: comp => dispatch(addToCart(comp)),
     onRefreshCart: comp => dispatch(refreshCart(comp)),
-    onDeleteFromCart: comp => dispatch(deleteFromCart(comp)),
+    onRemoveFromCart: comp => dispatch(removeFromCart(comp)),
   }
 }
 

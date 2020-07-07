@@ -67,9 +67,10 @@ const Comp = ({ cart, comp, onAddToCart, onRefreshCart, onRemoveFromCart }) => {
       />
 
       <TechData data={techData} />
+
       <PriceData
         data={sellPrice}
-        onQnt={onQntClick}
+        onQntClick={onQntClick}
       />
 
       <OrderInput

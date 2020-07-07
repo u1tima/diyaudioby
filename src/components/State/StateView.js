@@ -9,17 +9,36 @@ export const PartNumber = ({ partNumber, manufacture }) => (
   </td>
 )
 
+export const PartName = ({ name, manufacture }) => (
+  <td>
+    <div>{name}</div>
+    <div>{manufacture.name}</div>
+  </td>
+)
+
+export const PartPosition = ({ pos }) => <td>{pos}</td>
+
+export const Info = () => <td><Icon icon="cog" size="lg" /></td>
+
+export const AsmQuantity = ({ qnt, onAsmQntClick }) => (
+  <td>
+    <div className={css.asmQnt} onClick={() => onAsmQntClick(qnt)}>
+      {qnt}
+    </div>
+  </td>
+)
+
 export const TechData = ({ data }) => {
   return data.map((tech, index) => (
     <td key={index}>{tech.value}</td>
   ))
 }
 
-export const PriceData = ({ data, onQnt }) => (
+export const PriceData = ({ data, onQntClick }) => (
   <td className={css.price}>
     {data.map((item, index) => (
       <div key={index} className={css.row}>
-        <div className={css.item} onClick={() => onQnt(index)}>{`${item.qnt}+`}</div>
+        <div className={css.item} onClick={() => onQntClick(index)}>{`${item.qnt}+`}</div>
         <div>{`${item.unitPrice.toFixed(2)} р`}</div>
       </div>
     ))}

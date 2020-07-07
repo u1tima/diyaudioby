@@ -20,7 +20,7 @@ export const getState = (cart, comp) => {
   return initialState;
 }
 
-const getPrice = (qnt, priceArray) => {
+export const getPrice = (qnt, priceArray) => {
   if (qnt <= 0) return 0;
   let unitPrice = priceArray[0].unitPrice;
   priceArray.forEach(item => {
